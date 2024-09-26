@@ -1,0 +1,156 @@
+<div class=" header bg-info pb-6">
+    <div class=" container-fluid">
+      <div class=" header-body">
+        <div class=" row align-items-center py-4">
+          <div class=" col-lg-6 col-7">  
+            <nav
+              aria-label="breadcrumb"
+              class=" d-none d-md-inline-block ml-md-4"
+            >
+              <ol class=" breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class=" breadcrumb-item">
+                  <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
+                </li>
+  
+                <li class=" breadcrumb-item">
+                  <a href="javascript:void(0)"> Actes</a>
+                </li>
+  
+                <li aria-current="page" class=" breadcrumb-item active">
+                  Liste actes
+                </li>
+              </ol>
+            </nav>
+          </div>
+  
+          <div class=" col-lg-6 col-5 text-right">           
+            <div class="mr-1 dropdown" dropdown style="width: 150px;">
+              <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" dropdownToggle>
+                Filtre <i class="fas fa-filter"></i>
+              </a>
+              <div  aria-labelledby="dropdownMenuButton" *dropdownMenu class="dropdown-menu pull-left">
+                <a class="dropdown-item" href="javascript:void(0)">Aujourd'hui</a>
+                <a class="dropdown-item" href="javascript:void(0)">Cette semaine</a>
+                <a class="dropdown-item" href="javascript:void(0)">Ce mois</a>
+                <a class="dropdown-item" href="javascript:void(0)">Periode</a>
+              </div>
+            </div>
+            <a class=" btn btn-sm" href="javascript:void(0)"></a>
+          </div>
+        </div>
+        <app-modulestat [module]="module" [user_role]="user_role"></app-modulestat>
+      </div>
+    </div>
+  </div>
+  
+  <div class=" container-fluid mt--6">
+    <div class=" row">
+      <div class=" col">
+        <div class=" card">
+          <div class=" card-header">
+            <div class=" row align-items-center">
+              <div class=" col"><h3 class=" mb-0">Liste des actes</h3></div>
+  
+              <div class=" col text-right">
+                <a  routerLink="../nouveau" class=" btn btn-primary btn-icon" type="button">
+                  <span class=" btn-inner--icon">
+                    <i class=" ni ni-fat-add"> </i>
+                  </span>
+                  <span class=" btn-inner--text"> Ajouter </span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="dataTables_wrapper py-4">
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <div class="dataTables_length" id="datatable_length">
+                  <label>
+                    Afficher
+                    <select
+                      name="datatable_length"
+                      aria-controls="datatable"
+                      class="form-control form-control-sm"
+                      (change)="entriesChange($event)"
+                    >
+                      <option value="10" [selected]="entries == 10">10</option>
+                      <option value="25" [selected]="entries == 25">25</option>
+                      <option value="50" [selected]="entries == 50">50</option>
+                      <option value="-1" [selected]="entries == -1">All</option>
+                    </select>
+                    enregistrements
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <div id="datatable_filter" class="dataTables_filter">
+                  <label>
+                    <input
+                      type="search"
+                      class="form-control form-control-sm"
+                      placeholder="Recherche..."
+                      aria-controls="datatable"
+                      (keyup)="filterTable($event)"
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+  
+            <ngx-datatable
+              class="bootstrap selection-cell"
+              [columnMode]="'force'"
+              [headerHeight]="50"
+              [footerHeight]="50"
+              [rowHeight]="'auto'"
+              [limit]="entries != -1 ? entries : undefined"
+              [rows]="temp"
+              (activate)="onActivate($event)"
+            >
+              <ngx-datatable-column name="N°" prop="num"></ngx-datatable-column>
+              <ngx-datatable-column name="Date" prop="date"></ngx-datatable-column>
+              <ngx-datatable-column name="Type" prop="type"></ngx-datatable-column>
+              <ngx-datatable-column name="Propriété" prop="propriete"></ngx-datatable-column>
+              <ngx-datatable-column name="Montant" prop="montant"></ngx-datatable-column>
+              <ngx-datatable-column name="Etat" prop="etat"></ngx-datatable-column>
+              <ngx-datatable-column name="Actions" prop="actions">
+                <ng-template ngx-datatable-cell-template let-row="row">
+                  
+                  <div class=" table-actions">
+                    <a
+                      class="table-action"
+                      tooltip="Détail"
+                      placement="top"
+                      href="javascript:void(0)"
+                      (click)="onView(row.num)"
+                    >
+                      <i class=" fas fa-eye text-primary"> </i>
+                    </a>
+                    <a
+                      class="table-action"
+                      tooltip="Modifier"
+                      placement="top"
+                      href="javascript:void(0)"
+                      (click)="onUpdate(row.num)"
+                    >
+                      <i class=" fas fa-user-edit text-info"> </i>
+                    </a>
+                    <a
+                      class=" table-action table-action-delete"
+                      tooltip="Supprimer"
+                      placement="top"
+                      href="javascript:void(0)"
+                    >
+                      <i class=" fas fa-trash text-danger"> </i>
+                    </a>
+                  </div>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  

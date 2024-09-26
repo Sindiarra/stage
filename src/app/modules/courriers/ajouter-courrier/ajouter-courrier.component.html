@@ -1,0 +1,217 @@
+<div class=" header bg-info pb-6">
+    <div class=" container-fluid">
+      <div class=" header-body">
+        <div class=" row align-items-center py-4">
+          <div class=" col-lg-6 col-7">
+            <nav
+              aria-label="breadcrumb"
+              class=" d-none d-md-inline-block ml-md-4"
+            >
+              <ol class=" breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class=" breadcrumb-item">
+                  <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
+                </li>
+
+                <li class=" breadcrumb-item">
+                  <a href="javascript:void(0)"> Courriers </a>
+                </li>
+
+                <li aria-current="page" class=" breadcrumb-item active">
+                  Nouveau
+                </li>
+              </ol>
+            </nav>
+          </div>
+
+          <div class=" col-lg-6 col-5 text-right">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--Debut formulaire ajouter nouveau courrier-->
+  <div class=" container-fluid mt--6">
+    <div class=" card mb-4">
+      <div class=" card-header"><h3 class=" mb-0">Nouveau courrier</h3></div>
+      <div class=" card-body">
+        <form #formNewCourrier ngForm (ngSubmit)="onSubmitNewCourrier()">
+
+
+          <div class="form-group row" >
+            <label class="col-sm-3 col-form-label-sm" >Confidentiel</label>
+            <div class="col-sm-2">
+              <input type="checkbox" class="form-check-input" [(ngModel)]="newCourrier.confidentiel" style="width:0.5cm;height:0.5cm">
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <label for="numCourrier" class="col-sm-2 col-form-label-sm">N° d'arrivée</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control form-control-sm" id="numCourrier" name="numCourrier" placeholder=""
+                     [(ngModel)]="newCourrier.numCourrier" disabled>
+            </div>
+            <label for="dateArrivee" class=" col-sm-2 col-form-label-sm">Date d'arrivée<b style="color: red">*</b></label>
+            <div class="col-sm-4">
+              <input type="date" class="form-control form-control-sm" id="dateArrivee" name="dateArrivee" placeholder=""
+              [(ngModel)]="newCourrier.dateCourrier" required>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="refCourrier" class="col-sm-2 col-form-label-sm">Références<b style="color: red">*</b></label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control form-control-sm" id="refCourrier" name="refCourrier" placeholder=""
+                     [(ngModel)]="newCourrier.referenceCourrier">
+            </div>
+            <label for="dateCourrier" class=" col-sm-2 col-form-label-sm">Date du courrier<b style="color: red">*</b></label>
+            <div class="col-sm-4">
+              <input type="date" class="form-control form-control-sm" id="dateCourrier" name="dateCourrier" placeholder=""
+                     [(ngModel)]="newCourrier.datereference">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="objet" class=" col-sm-2 col-form-label-sm">Objet<b style="color: red">*</b></label>
+            <div class="col-sm-10">
+              <textarea class="form-control form-control-sm" id="objet" name="objet" rows="3"
+              [(ngModel)]="newCourrier.objetCourrier"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="origine" class=" col-sm-2 col-form-label-sm">Origine<b style="color: red">*</b>
+              <button class="btn btn-sm" title="Ajouter une partie prenante" type="button" style="background: transparent;border:none">
+                <i class="fa fa-plus text-success" > </i>
+                <!--(click)="open(classic,'' , '')"-->
+              </button>
+            </label>
+            <div class="col-sm-10 ">
+              <select class=" form-control form-control-sm" data-toggle="select" id="origine" [(ngModel)]="selectedOrigine">
+                <option value="">Selectionner</option>
+                <option *ngFor="let person of listPersonne" [ngValue]="person">{{person.id}} {{person.name}}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="provenance" class=" col-sm-2 col-form-label-sm">Provenance<b style="color: red">*</b>
+              <button class="btn btn-sm" title="Ajouter une partie prenante" type="button" style="background: transparent;border:none">
+                <i class="fa fa-plus text-success" > </i>
+                <!--(click)="open(classic,'' , '')"-->
+              </button>
+            </label>
+            <div class="col-sm-10 ">
+              <select class=" form-control form-control-sm" data-toggle="select"  id="provenance" [(ngModel)]="selectedProvenance">
+                <option value="">Selectionner</option>
+                <option *ngFor="let person of listPersonne" [ngValue]="person">{{person.id}} {{person.name}}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="typeCourrier" class=" col-sm-2 col-form-label-sm">Type Courrier<b style="color: red">*</b>
+              <button class="btn btn-sm" title="Ajouter une partie prenante" type="button" style="background: transparent;border:none">
+                <i class="fa fa-plus text-success" > </i>
+                <!--(click)="open(classic,'' , '')"-->
+              </button>
+            </label>
+            <div class="col-sm-4 ">
+              <select class=" form-control form-control-sm" data-toggle="select"  [(ngModel)]="newCourrier.typeCourrier" id="typeCourrier">
+                <option value="">Selectionner</option>
+                <option *ngFor="let type of listTypeCourrier" [ngValue]="type">{{type.libelle}}</option>
+              </select>
+            </div>
+            <label class="col-sm-1 col-form-label-sm">Priorité</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="priorite" id="normal" value="normal" [(ngModel)]="newCourrier.priorite" style="width:0.5cm;height:0.5cm" checked>
+              <label class="form-check-label" for="normal">Normal</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="priorite" id="urgent" value="urgent" [(ngModel)]="newCourrier.priorite" style="width:0.5cm;height:0.5cm">
+              <label class="form-check-label" for="urgent">Urgent</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="priorite" id="tresUrgent" value="tresUrgent" [(ngModel)]="newCourrier.priorite" style="width:0.5cm;height:0.5cm">
+              <label class="form-check-label" for="tresUrgent">Très Urgent</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="priorite" id="tresTresUrgent" value="tresTresUrgent" [(ngModel)]="newCourrier.priorite" style="width:0.5cm;height:0.5cm">
+              <label class="form-check-label" for="tresTresUrgent">Très Très Urgent</label>
+            </div>
+
+          </div>
+
+          <div class="form-group row">
+            <label for="delaiProvenance" class=" col-sm-2 col-form-label-sm">Délai Provenance</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control form-control-sm" id="delaiProvenance" name="delaiProvenance" placeholder=""
+                     [(ngModel)]="newCourrier.delaiProvenance">
+            </div>
+            <label for="delaiTraitement" class="col-sm-2 col-form-label-sm">Délai Traitement</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control form-control-sm" id="delaiTraitement" name="delaiTraitement" placeholder=""
+                     [(ngModel)]="newCourrier.delaiTraitement">
+            </div>
+          </div>
+
+
+          <!--debut tableau de documents-->
+
+          <p>Listes des Documents joints</p>
+          <table class=" table align-items-center table-flush">
+            <thead class=" thead-light">
+            <tr>
+              <th>Type Document</th>
+              <th>N°Document</th>
+              <th>Date Document</th>
+              <th>Document</th>
+              <th><button class="btn btn-sm" title="Ajouter Document" type="button" (click)="addDocument()" style="background: transparent;border:none"><i
+                class="fa fa-plus text-success"></i></button></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let document of tabDocument;let i=index" ngModelGroup="i">
+              <td>
+                <select class=" form-control form-control-sm" data-toggle="select" name="typeDocument_{{i}}"  [(ngModel)]="document.typedoc">
+                  <option value="">Selectionner</option>
+                  <option *ngFor="let type of listTypeDocument" [ngValue]="type">{{type.libelle}}</option>
+                </select>
+              </td>
+              <td>
+                <input type="text" class="form-control form-control-sm" name="numDocument_{{i}}" [(ngModel)]="document.numeroDocument">
+              </td>
+              <td>
+                <input type="date" class="form-control form-control-sm" name="dateDocument_{{i}}"[(ngModel)]="document. dateEtablissement">
+              </td>
+              <td>
+                <input type="file" name="urlDocument_{{i}}" [(ngModel)]="document.imageURL">
+              </td>
+              <td>
+                <button class="btn btn-sm" type="button" (click)="removeDocument(i)" style="background: transparent;border:none"><i class="fas fa-trash text-danger"></i></button>
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+
+
+          <div class="row">
+            <div class="mt-3 col-sm-6">
+              <button class="btn btn-success me-3 " type="submit" >Enregistrer</button>
+              <!--[disabled]="!formNewCourrier.valid"-->
+            </div>
+            <div class="col-sm-4"></div>
+            <div class="mt-3 col-sm-2 offset-3">
+              <button class="btn btn-danger ms-3" type="reset" >Annuler</button>
+            </div>
+          </div>
+
+        </form>
+
+      </div><!--fin card body-->
+
+    </div>
+  </div>

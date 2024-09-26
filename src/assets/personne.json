@@ -1,0 +1,137 @@
+[
+    {
+        "id": 1,
+        "refPersonne": "24-34334-M",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "raisonSocialePersonneMorale": "Domaine",
+        "nomCommercialPersonneMorale": "DGDC",
+        "typeEntrepPersonneMorale": "Autres",
+        "numCcrmPersonneMorale": "SN",
+        "historiquePersonneMorale": null,
+        "typepersonne": {
+            "id": 2,
+            "libelleTypePersonne": "Morale"
+        },
+        "pieces": [],
+        "personneadresse": null
+    },
+    {
+        "id": 2,
+        "refPersonne": "24-66555-M",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "raisonSocialePersonneMorale": "Urbanisme",
+        "nomCommercialPersonneMorale": "Urb",
+        "typeEntrepPersonneMorale": "Autres",
+        "numCcrmPersonneMorale": "SN",
+        "historiquePersonneMorale": null,
+        "typepersonne": {
+            "id": 2,
+            "libelleTypePersonne": "Morale"
+        },
+        "pieces": [],
+        "personneadresse": null
+    },
+    {
+        "id": 3,
+        "refPersonne": "24-65564-M",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "raisonSocialePersonneMorale": "INPS",
+        "nomCommercialPersonneMorale": "INPS",
+        "typeEntrepPersonneMorale": "Autres",
+        "numCcrmPersonneMorale": "SN",
+        "historiquePersonneMorale": null,
+        "typepersonne": {
+            "id": 2,
+            "libelleTypePersonne": "Morale"
+        },
+        "pieces": [],
+        "personneadresse": null
+    },
+    {
+        "id": 4,
+        "refPersonne": "24-12222-PH",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "civilitePersonnePhysique": "Mr",
+        "nomPersonnePhysique": "ALi",
+        "prenomPersonnePhysique": "Diop",
+        "prenom2PersonnePhysique": null,
+        "nomJeuneFillePersonnePhysique": null,
+        "sexePersonnePhysique": "H",
+        "dateNaissPersonnePhysique": "1970-01-01T00:00:00.000Z",
+        "lieuNaissPersonnePhysique": "Mali",
+        "nationalitePersonnePhysique": "Mali",
+        "professionPersonnePhysique": "autres",
+        "prenomPerePersonnePhysique": "SN",
+        "nomPerePersonnePhysique": "SN",
+        "nomMerePersonnePhysique": "SN",
+        "prenomMerePersonnePhysique": "SN",
+        "typepersonne": {
+            "id": 1,
+            "libelleTypePersonne": "Physique"
+        },
+        "pieces": [],
+        "personneadresse": null
+    },
+    {
+        "id": 5,
+        "refPersonne": "24-78877-PH",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "civilitePersonnePhysique": "Mr",
+        "nomPersonnePhysique": "Madou",
+        "prenomPersonnePhysique": "Toure",
+        "prenom2PersonnePhysique": null,
+        "nomJeuneFillePersonnePhysique": null,
+        "sexePersonnePhysique": "H",
+        "dateNaissPersonnePhysique": "1970-01-01T00:00:00.000Z",
+        "lieuNaissPersonnePhysique": "Bamako",
+        "nationalitePersonnePhysique": "Mali",
+        "professionPersonnePhysique": "Ingénieur Civil",
+        "prenomPerePersonnePhysique": "SN",
+        "nomPerePersonnePhysique": "SN",
+        "nomMerePersonnePhysique": "SN",
+        "prenomMerePersonnePhysique": "SN",
+        "typepersonne": {
+            "id": 1,
+            "libelleTypePersonne": "Physique"
+        },
+        "pieces": [],
+        "personneadresse": null
+    },
+    {
+        "id": 6,
+        "refPersonne": "24-9922-PH",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "civilitePersonnePhysique": "Mme",
+        "nomPersonnePhysique": "Fanta",
+        "prenomPersonnePhysique": "Coulibaly",
+        "prenom2PersonnePhysique": null,
+        "nomJeuneFillePersonnePhysique": null,
+        "sexePersonnePhysique": "F",
+        "dateNaissPersonnePhysique": "1970-01-01T00:00:00.000Z",
+        "lieuNaissPersonnePhysique": "Mali",
+        "nationalitePersonnePhysique": "Mali",
+        "professionPersonnePhysique": "Autres",
+        "prenomPerePersonnePhysique": "SN",
+        "nomPerePersonnePhysique": "SN",
+        "nomMerePersonnePhysique": "SN",
+        "prenomMerePersonnePhysique": "SN",
+        "typepersonne": {
+            "id": 1,
+            "libelleTypePersonne": "Physique"
+        },
+        "pieces": [],
+        "personneadresse": null
+    }
+]

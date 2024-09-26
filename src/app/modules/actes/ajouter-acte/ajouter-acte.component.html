@@ -1,0 +1,552 @@
+<div class=" header bg-info pb-6">
+    <div class=" container-fluid">
+      <div class=" header-body">
+        <div class=" row align-items-center py-4">
+          <div class=" col-lg-6 col-7">  
+            <nav
+              aria-label="breadcrumb"
+              class=" d-none d-md-inline-block ml-md-4"
+            >
+              <ol class=" breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class=" breadcrumb-item">
+                  <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
+                </li>
+  
+                <li class=" breadcrumb-item">
+                  <a href="javascript:void(0)"> Actes </a>
+                </li>
+  
+                <li aria-current="page" class=" breadcrumb-item active">
+                  Nouvel acte
+                </li>
+              </ol>
+            </nav>
+          </div>
+  
+          <div class=" col-lg-6 col-5 text-right">
+            <!-- <a class=" btn btn-sm btn-neutral" href="javascript:void(0)"> New </a>
+  
+            <a class=" btn btn-sm btn-neutral" href="javascript:void(0)">
+              Filters
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class=" container-fluid mt--6">
+    <form role="form" #form_courrier="ngForm" class="form-horizontal" method="POST" id="form_courrier">
+    <div class=" card mb-4">
+      <div class=" card-header"><h3 class=" mb-0">Informations relatives à l'acte</h3></div>
+        <div class=" card-body">
+        
+            <div class=" row">
+                <div class=" col-sm-6">
+                    <table style="width: 80%; line-height: 1;">
+                        <tr>
+                          <td><label for="Num_Acte" class="col-sm-12 control-label">N°</label></td>
+                          <td><input type="text" class="form-control form-control-sm" id="Num_Acte" [(ngModel)]="newActe.numeroacte" name="Num_Acte" placeholder=""></td>
+                        </tr>
+                        <tr>
+                          <td><label for="Date_Acte" class="col-sm-12 control-label">Date</label></td>
+                          <td><input type="date" class="form-control form-control-sm" id="Date_Acte" [(ngModel)]="newActe.dateActe" name="Date_Acte" placeholder=""></td>
+                        </tr>
+                        <tr>
+                          <td><label for="Type_Acte" class="col-sm-12 control-label">Type</label></td>
+                          <td>
+                            <select [(ngModel)]="newActe.type" name="Type_Acte" class="form-control form-control-sm" id="Type_Acte">
+                              <option value="">--Select--</option>
+                              <option  *ngFor="let typeacte of typeActe" value="{{typeacte.id}}">{{typeacte.libelleTypeActe}}</option>
+                            </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><label for="Autorite_Signataire" class="col-sm-12 control-label">Autorité Signataire</label></td>
+                          <td>
+                            <select name="Autorite_Signataire" class="form-control form-control-sm" id="Autorite_Signataire">
+                              <option value="">--Select--</option>
+                              <option value="Chef_Bureau">Chef Bureau</option>
+                              <option value="Directeur_National">Directeur National</option>
+                              <option value="Directeur_Regional">Directeur Regional </option>
+                              <option value="Gouverneur">Gouverneur</option>
+                            </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><label for="Montant_Acte" class="col-sm-12 control-label">Montant</label></td>
+                          <td><input type="number" class="form-control form-control-sm" id="Montant_Acte" [(ngModel)]="newActe.montant" name="Montant_Acte" placeholder=""></td>
+                        </tr>
+                        <tr>
+                          <td><label for="Nature_Acte" class="col-sm-12 control-label">Nature</label></td>
+                          <td>
+                            <select [(ngModel)]="newActe.nature" name="Nature_Acte" class="form-control form-control-sm" id="Nature_Acte">
+                              <option value="">--Select--</option>
+                              <option value="Cession">Cession</option>
+                              <option value="Hypothèque">Hypothèque</option>
+                              <option value="Immatriculation">Immatriculation</option>
+  
+                            </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><label for="Date_Saisie" class="col-sm-12 control-label">Date de Saisie</label></td>
+                          <td><input type="date" class="form-control form-control-sm" id="Date_Saisie" name="Date_Saisie" placeholder=""></td>
+                        </tr>
+                        
+                      </table>               
+                </div>
+                <div class="col-sm-6">
+                    <fieldset class="col-sm-12 field border p-2">
+                      <legend class="w-auto">Courrier</legend>
+                          <table style="width: 80%; line-height: 1;">
+                            <tr>
+                              <td><label for="Num_Courrier" class="col-sm-12 control-label">N° Courrier d'Arrivée</label></td>
+                              <td><input type="text" class="form-control form-control-sm" id="Num_Courrier" name="Num_Courrier" readonly=""></td>
+                            </tr>
+                            <tr>
+                              <td><label for="Date_Courrier" class="col-sm-12 control-label">Date du Courrier</label></td>
+                              <td><input type="date" class="form-control form-control-sm" id="Date_Courrier" name="Date_Courrier" readonly=""></td>
+                            </tr>
+                            <tr>
+                              <td><label for="Type_Courrier" class="col-sm-12 control-label">Type de Courrier</label></td>
+                              <td><input type="text" class="form-control form-control-sm" id="Type_Courrier" name="Type_Courrier" readonly=""></td>
+                            </tr>
+                            <tr>
+                              <td><label for="pj" class="col-sm-12 control-label">L'acte</label></td>
+                              <td><a href="/src/assets/loading-icon.gif" style="background: none;"><i class="fas fa-file-pdf fa-2x"></i></a></td>
+                            </tr>
+                          </table>
+                    </fieldset>
+                    <br>
+                      <fieldset class="col-sm-12 field border p-2">
+                        <legend class="w-auto">Informations d'enregistrement</legend>
+                      <table style="width: 80%; line-height: 1;">
+                        <tr>
+                          <td></td>
+                          <td><input type="checkbox" style="width: 25px;height: 25px;margin-right: 10px;" id="Acte_non_soumis" name="Acte_non_soumis">
+                            <label for="Acte_non_soumis" class="control-label">Acte non soumis à l'enregistrement</label></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td><input type="checkbox" style="width: 25px;height: 25px;margin-right: 10px;" id="Acte_deja_enregistre" name="Acte_deja_enregistre">
+                          <label for="Acte_deja_enregistre" class="control-label">Acte déjà enregistré ailleurs (Autres BDC ou DGI)</label></td>
+                        </tr>
+                      </table>
+                      </fieldset>
+                </div>
+            </div>
+          
+        
+      </div>
+    </div>
+    <div class=" row">
+      <div class=" col-lg-8">
+          <div class=" card-wrapper">
+            <div class=" card">
+                  <div class=" card-header"><h3 class=" mb-0">Propriété</h3></div>
+                  <div class=" card-body">
+                          <table class=" table align-items-center table-flush">
+                            <thead class=" thead-light">
+                              <tr>
+                              <th>N° Propriété</th>
+                              <th>Type Propriété</th>
+                              <th>N° Parcelle</th>
+                              <th>Superficie</th>
+                              <th>Localité</th>
+                              <th><button class="btn btn-sm" title="Ajouter une propriété" type="button" style="background: transparent;border:none"><i
+                                  class="fa fa-plus text-success"></i></button></th>
+                              </tr>
+                          </thead>
+                        <tbody>
+                          <tr *ngFor="let tabProp1 of tabProp let index =index">
+                            <td>
+                                  <app-dropdown 
+                                        [items]="tabProp1.listpropriete" 
+                                        [showSearch]="showSearch" 
+                                        [showStatus]="showStatus" 
+                                        [showError]="showError" 
+                                        (itemChange)="onItemChangePropriete($event,index)">
+                                  </app-dropdown>
+                            </td>
+                            <td>
+                              <input type="text" class="form-control" id="Type_Propriete" value="{{tabProp1.typePropriete}}" name="Num_Parcelle">
+                            </td>
+                            <td><input type="text" class="form-control" id="Num_Parcelle" value="{{tabProp1.parcellePropriete}}" name="Num_Parcelle"></td>
+                            <td><input type="text" class="form-control" id="Superficie" value="{{tabProp1.superficiePropriete}}" name="Superficie"></td>
+                            <td><input type="text" class="form-control" id="Localite" value="{{tabProp1.localitePropriete}}" name="Localite"></td>
+                            <td>
+                              <button class="btn btn-sm" type="button" (click)="supprActeListe(tabProp1.propriete,index,tabProp)" style="background: transparent;border:none"><i class="fa fa-remove text-danger"></i></button>
+                            </td>
+                          </tr>
+                        </tbody>
+                        </table>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class=" col-lg-4">
+        <div class=" card-wrapper">
+          <div class=" card">
+                <div class=" card-header"><h3 class=" mb-0">Processus</h3></div>
+                <div class=" card-body">
+                  <table class=" table align-items-center table-flush">
+                    <thead class=" thead-light">
+                      <tr>
+                        <th>Libellé</th>
+                        <th><button class="btn btn-sm" title="Ajouter un processus" type="button" style="background: transparent;border:none"><i
+                          class="fa fa-plus text-success"></i></button></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let tabProc1 of tabProcessus let index =index">
+                        <td>
+                          <app-dropdown 
+                                  [items]="tabProc1.listprocessus" 
+                                  [showSearch]="showSearch" 
+                                  [showStatus]="showStatus" 
+                                  [showError]="showError" 
+                                  (itemChange)="getProcessusInfo($event,index)">
+                              </app-dropdown>
+                        </td>
+                        <td>
+                          <button class="btn btn-sm" type="button" (click)="supprProcessusListe(index,tabProcessus)" style="background: transparent;border:none"><i class="fa fa-remove text-danger"></i></button>
+                        </td>
+                      </tr>
+                  </tbody>
+                  </table>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=" row">
+      <div class=" col-lg-12">
+          <div class=" card-wrapper">
+            <div class=" card">
+                  <div class=" card-header"><h3 class=" mb-0">Partie-prenante</h3></div>
+                  <div class=" card-body">
+                    <table class=" table align-items-center table-flush">
+                      <thead class=" thead-light">
+                      <tr>
+                        <th>Personne</th>
+                        <th>Rôle</th>
+                        <th>Groupe</th>
+                        <th>Date</th>
+                        <th><button class="btn btn-sm" title="Ajouter une partie prenante" type="button" style="background: transparent;border:none"><i
+                          class="fa fa-plus text-success"></i></button></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let partie of tabPartie let index = index">
+                        <td>
+                          <app-dropdown 
+                                [items]="partie.listpersonne" 
+                                [showSearch]="showSearch" 
+                                [showStatus]="showStatus" 
+                                [showError]="showError" 
+                                (itemChange)="getPartieInfo($event,index)">
+                            </app-dropdown>
+                        </td>
+                        <td>
+                          <app-dropdown 
+                                [items]="partie.listrole" 
+                                [showSearch]="showSearch" 
+                                [showStatus]="showStatus" 
+                                [showError]="showError"
+                                (itemChange)="getRoleInfo($event,index)">
+                            </app-dropdown>
+                        </td>
+                        <td>
+                          <app-dropdown 
+                                [items]="partie.listgroup" 
+                                [showSearch]="showSearch" 
+                                [showStatus]="showStatus" 
+                                [showError]="showError" 
+                                (itemChange)="getGroupInfo($event,index)">
+                            </app-dropdown>
+                        </td>
+                        <td><input type="date" class="form-control" id="Date" name="Date" (change)="onUpdateDatePartie($event,index)" value="{{partie.date}}"></td>
+                        <td>
+                          <button class="btn btn-sm" type="button" (click)="supprPartieListe(index,tabPartie)" style="background: transparent;border:none"><i class="fa fa-remove text-danger"></i></button>
+                        </td>
+                      </tr>
+                    </tbody>
+                    </table>
+                  </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <table style="width: 100%">
+        <tr>
+          <td align="center"><button class="btn btn-success" (click)="onFormSubmit();"><i class="fa fa-save"></i>Sauvegarder</button></td>
+          <td align="center"><button class="btn btn-danger"><i class="ni ni-fat-remove"></i>Annuler</button></td>
+        </tr>
+      </table>
+    </div>
+    <hr class="separator">
+    <br>
+  </form><br>
+          <div class="row">
+            <div class="col-lg-12">
+              <tabset type="pills" class="nav-fill flex-column flex-md-row">
+                <tab id="liquidation" [active]="idOngletActive === 'liquidation'">
+                  <ng-template tabHeading>
+                    <i class="ni ni-atom mr-2"></i>Liquidation
+                  </ng-template>
+                  <form role="form" #form_liquidation="ngForm" class="form-horizontal" method="POST" id="form_liquidation">
+                    <fieldset class="col-sm-12 field border p-2">
+                      <legend class="w-auto"></legend>
+                      <h4>La saisie des droits et taxes à percevoir</h4>
+                      <div class="col-sm-6"></div>
+                      <div class="col-sm-6">
+                        <table style="width: 80%; line-height: 1;">
+                          <tr>
+                          <td><label for="Num_Carnet_OE" class="col-sm-12 control-label">N° de Carnet OE</label>
+                          </td>
+                          <td><input type="text" class="form-control form-control-sm" id="Num_Carnet_OE" name="Num_Carnet_OE" placeholder=""></td>
+                          </tr>
+                          <tr>
+                            <td><label for="Num_Ordre_Encaissement" class="col-sm-12 control-label">N° d'Ordre d'Encaissement</label></td>
+                            <td><input type="text" class="form-control form-control-sm" id="Num_Ordre_Encaissement" name="Num_Ordre_Encaissement" placeholder="">
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><label for="Date_Etablissement_OE" class="col-sm-12 control-label">Date d'Etablissement OE</label></td>
+                            <td><input type="date" class="form-control form-control-sm" id="Date_Etablissement_OE" name="Date_Etablissement_OE" placeholder="">
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                        <table id="table" class="table table-striped align-items-center table-flush">
+                          <thead class=" thead-light">
+                            <tr>
+                              <th>Droits et Taxes</th>
+                              <th>Taux/Barêmes</th>
+                              <th>Montant(FCFA)</th>
+                              <th style="width: 30px;"><button class="btn btn-sm" title="Ajouter droit/taxe" type="button" style="background: transparent;border:none"><i
+                                  class="fa fa-plus text-success"></i></button></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let droits of tabDroit let index = index">
+                              <td>
+                                <!-- <label for="imageUrl">selection simple</label> -->
+                                  <app-dropdown 
+                                  [items]="droits.droit" 
+                                  [showSearch]="showSearch" 
+                                  [showStatus]="showStatus" 
+                                  [showError]="showError" 
+                                  (itemChange)="onItemChangeDroit($event,index)">
+                              </app-dropdown>
+                              </td>
+                              <td>
+                                <app-dropdown 
+                                  [items]="droits.droit" 
+                                  [showSearch]="showSearch" 
+                                  [showStatus]="showStatus" 
+                                  [showError]="showError" 
+                                  (itemChange)="onItemChangeDroit($event,index)">
+                              </app-dropdown>
+                              </td>
+                              <td>
+                                <input type="number" name="montant_droits_taxes[]" id="montant_droits_taxes" class="form-control montant_droits_taxes">
+                              </td>
+                              <td>
+                                <button class="btn btn-sm" type="button" (click)="supprDroitListe(index,tabDroit)" style="background: transparent;border:none"><i class="fa fa-remove text-danger"></i></button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table style="width: 50%;float:right">
+                          <tr>
+                            <td><label for="montant_total">Total </label></td>
+                            <td><input type="number" name="montant_total" id="montant_total" class="form-control montant_total"></td>
+                          </tr>
+                        </table>
+                        <br><br><br>
+                        <table style="width: 100%;">
+                          <tr>
+                            <td align="center"><button class="btn btn-success"> <i class="fa fa-check"></i>Valider</button></td>
+                            <td align="center"><button class="btn btn-danger"> <i class="fas fa-remove"></i>Annuler</button></td>
+                          </tr>
+                        </table>
+                    </fieldset>
+                    </form>
+                </tab>
+                <tab id="emission" [active]="idOngletActive === 'emission'">
+                  <ng-template tabHeading>
+                    <i class="ni ni-chart-bar-32 mr-2"></i>Emission
+                  </ng-template>
+                  <form role="form" #form_emission="ngForm" class="form-horizontal" method="POST" id="form_emission">
+                    <fieldset class="col-sm-12 field border p-2">
+                      <legend class="w-auto"></legend>
+                      <h4>La saisie des droits et taxes à percevoir</h4>
+                      <table class=" table align-items-center table-flush">
+                        <thead class=" thead-light">
+                            <tr>
+                              <th>Droits et Taxes</th>
+                              <th>Taux/Barêmes</th>
+                              <th>Montant(FCFA)</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                              <td>
+                              </td>
+                              <td>
+                              </td>
+                              <td>
+                              </td>
+                            </tr>
+                        
+                          </tbody>
+                        </table>
+                        <table style="width: 50%;float:right">
+                          <tr>
+                            <td><label for="montant_total">Total </label></td>
+                            <td><input type="number" name="montant_total" id="montant_total" class="form-control form-control-sm montant_total"></td>
+                          </tr>
+                        </table>
+                        <br><br><br>
+                    </fieldset>
+                    </form>
+                </tab>
+                <tab id="perception"  [active]="idOngletActive === 'perception'">
+                  <ng-template tabHeading>
+                    <i class="ni ni-briefcase-24 mr-2"></i>Perception
+                  </ng-template>
+                    <fieldset class="col-sm-12 field border p-2">
+                      <legend class="w-auto"></legend>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <form role="form" #form_perception="ngForm" class="form-horizontal" method="POST" id="form_perception">
+                          <table style="width: 100%; line-height: 1;">
+                            <tr>
+                              <td><label for="Num_Ordre_Encaissement" class="col-sm-12 control-label">N° d'Ordre d'Encaissement</label></td>
+                              <td><input type="text" class="form-control form-control-sm" id="Num_Ordre_Encaissement" name="Num_Ordre_Encaissement" readonly=""></td>
+                            </tr>
+                            <tr>
+                              <td><label for="Montant_A_Payer" class="col-sm-12 control-label">Montant A Payer</label></td>
+                              <td><input type="number" class="form-control form-control-sm" id="Montant_A_Payer" name="Montant_A_Payer" readonly=""></td>
+                            </tr>
+                            <tr>
+                              <td><label for="Date_Paiement" class="col-sm-12 control-label">Date de Paiement</label></td>
+                              <td><input type="date" class="form-control form-control-sm" id="Date_Paiement" name="Date_Paiement"  placeholder=""></td>
+                            </tr>
+                              <tr>
+                                <td><label for="Montant_Payer" class="col-sm-12 control-label">Montant Payé</label></td>
+                                <td><input type="number" class="form-control form-control-sm" id="Montant_Payer" name="Montant_Payer" placeholder=""></td>
+                              </tr>
+                              <tr>
+                            <tr>
+                              <td><label for="Mode_Paiement" class="col-sm-12 control-label">Mode de Paiement</label></td>
+                              <td>
+                                <select name="Mode_Paiement" class="form-control form-control-sm" id="Mode_Paiement">
+                                  <option value="">--Select--</option>
+                                  <option value="Espece">Espèce</option>
+                                  <option value="Cheque">Chèque</option>
+                                </select>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td><label for="Num_Quittance" class="col-sm-12 control-label">N° de la Quittance</label></td>
+                              <td><input type="text" class="form-control form-control-sm" id="Num_Quittance" name="Num_Quittance" placeholder="">
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="center"><button class="btn btn-success"><i class="fa fa-save"></i>Sauvegarder</button></td>
+                              <td align="center"><button class="btn btn-danger"><i class="ni ni-fat-remove"></i>Annuler</button></td>
+                            </tr>
+                          </table>
+                        </form>
+                        <hr class="separator">
+                        <fieldset class="col-sm-12 field border form-horizontal p-2">
+                          <legend class="w-auto">Historique des paiements</legend>
+                          <h6>Les différents paiements effectués suivant un Ordre d'encaissement</h6>
+                          <table id="table" class="table table-striped table-hover table-bordered">
+                            <thead class=" thead-light">
+                              <tr>
+                                <th>Réf. Quittance</th>
+                                <th>Date de paiement</th>
+                                <th>Montant Payé</th>
+                                <th>Reste à Payé</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </fieldset>
+                        </div>
+                        <div class="col-sm-6">
+                          <fieldset class="col-sm-12 field border p-2">
+                            <legend class="w-auto">Annulation de Quittance</legend>
+                            <div class="row">
+                            <form role="form" #form_annuler_quittance="ngForm" class="form-horizontal" method="POST" id="form_annuler_quittance">
+                              <table style="width: 100%; line-height: 1;">
+                                <tr>
+                                  <td><label for="Num_Quittance" class="col-sm-12 control-label">N° de la Quittance</label></td>
+                                  <td>
+                                    <select name="Num_Quittance" class="form-control form-control-sm" id="Num_Quittance">
+                                      <option value="">--Select--</option>
+                                      <option value=""></option>
+                                      <option value=""></option>
+                                    </select>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><label for="Motif_Annulation" class="col-sm-12 control-label">Motif de l'annulation</label></td>
+                                  <td>
+                                    <textarea name="Motif_Annulation" class="form-control form-control-sm" id="Motif_Annulation" cols="30" rows="10" style="height: 80px;" placeholder="Entrer le motif"></textarea>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td align="center"><button class="btn btn-success"><i class="fa fa-save"></i>Sauvegarder</button></td>
+                                  <td align="center"><button class="btn btn-danger"><i class="ni ni-fat-remove"></i>Annuler</button></td>
+                                </tr>
+                              </table>
+                              </form>
+                            </div>
+                          </fieldset>
+                        </div>
+                    </div>
+                    </fieldset>
+                    
+                  
+                </tab>
+                <tab id="enregistrement"  [active]="idOngletActive === 'enregistrement'">
+                  <ng-template tabHeading>
+                    <i class="fa fa-save mr-2"></i>Enregistrement
+                  </ng-template>
+                  <p class="description">Enregistrement</p>
+                </tab>
+                <tab id="depot"  [active]="idOngletActive === 'depot'">
+                  <ng-template tabHeading>
+                    <i class="ni ni-folder-17 mr-2"></i>Dépôt
+                  </ng-template>
+                  <p class="description">Dépôt</p>
+                </tab>
+                <tab id="inscription"  [active]="idOngletActive === 'inscription'">
+                  <ng-template tabHeading>
+                    <i class="ni ni-single-copy-04 mr-2"></i>Inscription
+                  </ng-template>
+                  <p class="description">Inscription</p>
+                </tab>
+              </tabset>
+            </div>
+        </div>   
+</div>

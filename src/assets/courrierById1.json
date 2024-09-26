@@ -1,0 +1,141 @@
+{
+  "id": 1,
+  "numCourrier": "1",
+  "dateCourrier": "2011-11-02T00:00:00.000Z",
+  "referenceCourrier": "LN°0021",
+  "datereference": "1970-01-01T00:00:00.000Z",
+  "objetCourrier": "lettre courrier",
+  "confidentiel": true,
+  "depart": true,
+  "delaiTraitement": "10jours",
+  "delaiProvenance": "15jours",
+  "priorite": "urgent",
+  "statut": "",
+  "observation": "",
+  "annotationNiveau1": "",
+  "annotationNiveau2": "",
+  "annotationNiveau3": "",
+  "annotationNiveau4": "",
+  "annotationCourrier": [],
+  "imputations": [],
+  "typeCourrier": {
+    "id": 1,
+    "libelle": "Acte Notarier"
+  },
+
+  "expediteur": {
+    "courrier": {
+    },
+    "personne": {
+      "id": 3,
+      "refPersonne": "",
+      "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+      "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+      "bloquePersonne": false,
+      "civilitePersonnePhysique": "",
+      "nomPersonnePhysique": "Fanta",
+      "prenomPersonnePhysique": "Coulibaly",
+      "prenom2PersonnePhysique": null,
+      "nomJeuneFillePersonnePhysique": null,
+      "sexePersonnePhysique": "",
+      "dateNaissPersonnePhysique": "1970-01-01T00:00:00.000Z",
+      "lieuNaissPersonnePhysique": "",
+      "nationalitePersonnePhysique": "",
+      "professionPersonnePhysique": "",
+      "prenomPerePersonnePhysique": "",
+      "nomPerePersonnePhysique": "",
+      "nomMerePersonnePhysique": "",
+      "prenomMerePersonnePhysique": "",
+      "typepersonne": {
+        "id": 1,
+        "libelleTypePersonne": "Physique"
+      }
+    }
+  },
+  "origine": {
+    "courrier": {
+    },
+    "personne": {
+      "id": 1,
+      "refPersonne": "",
+      "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+      "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+      "bloquePersonne": false,
+      "civilitePersonnePhysique": "",
+      "nomPersonnePhysique": "ALi",
+      "prenomPersonnePhysique": "Diop",
+      "prenom2PersonnePhysique": null,
+      "nomJeuneFillePersonnePhysique": null,
+      "sexePersonnePhysique": "",
+      "dateNaissPersonnePhysique": "1970-01-01T00:00:00.000Z",
+      "lieuNaissPersonnePhysique": "",
+      "nationalitePersonnePhysique": "",
+      "professionPersonnePhysique": "",
+      "prenomPerePersonnePhysique": "",
+      "nomPerePersonnePhysique": "",
+      "nomMerePersonnePhysique": "",
+      "prenomMerePersonnePhysique": "",
+      "typepersonne": {
+        "id": 1,
+        "libelleTypePersonne": "Physique"
+      }
+    }
+  },
+  "piecejointes":[
+    {
+      "courrier":{
+
+      },
+      "document":{
+        "imageUrl":"C:\\fakepath\\fiche_circulation.pdf",
+        "qualite":"",
+        "numeroDocument":"001",
+        "designationDocument":"",
+        "dateEtablissement":"1970-01-01T00:00:00.000Z",
+        "objetDocument":"",
+        "auteurDocument":"",
+        "dateAcceptation":"1970-01-01T00:00:00.000Z",
+        "dateSoumission":"1970-01-01T00:00:00.000Z",
+        "sourceExterne":"",
+        "dateDebutUtilisation":"1970-01-01T00:00:00.000Z",
+        "dateFinUtilisation":"1970-01-01T00:00:00.000Z",
+        "etatDocument":"",
+        "typedoc":{
+          "id": 1,
+          "libelle":"Administratif"
+        }
+      }
+    },
+    {
+      "courrier":{
+
+      },
+      "document":{
+        "imageUrl":"C:\\fakepath\\fiche_circulation2.pdf",
+        "qualite":"",
+        "numeroDocument":"002",
+        "designationDocument":"",
+        "dateEtablissement":"1970-01-01T00:00:00.000Z",
+        "objetDocument":"",
+        "auteurDocument":"",
+        "dateAcceptation":"1970-01-01T00:00:00.000Z",
+        "dateSoumission":"1970-01-01T00:00:00.000Z",
+        "sourceExterne":"",
+        "dateDebutUtilisation":"1970-01-01T00:00:00.000Z",
+        "dateFinUtilisation":"1970-01-01T00:00:00.000Z",
+        "etatDocument":"",
+        "typedoc":{
+          "id": 2,
+          "libelle":"Graphique"
+        }
+      }
+    }
+  ]
+
+}
+
+
+
+
+
+

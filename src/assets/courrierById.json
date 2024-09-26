@@ -1,0 +1,19 @@
+{
+  "id": 1,
+  "numCourrier": "1",
+  "dateCourrier": "2011-11-02T00:00:00.000Z",
+  "referenceCourrier": "LN°0021",
+  "datereference": "1970-01-01T00:00:00.000Z",
+  "objetCourrier": "lettre courrier",
+  "confidentiel": true,
+  "depart": true,
+  "delaiTraitement": "15jours",
+  "delaiProvenance": "",
+  "annotationNiveau1": "",
+  "annotationNiveau2": "",
+  "annotationNiveau3": "",
+  "annotationNiveau4": "",
+  "priorite": "urgent",
+  "statut": "",
+  "observation": ""
+}

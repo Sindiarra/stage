@@ -1,0 +1,178 @@
+<div class=" header bg-info pb-6">
+    <div class=" container-fluid">
+      <div class=" header-body">
+        <div class=" row align-items-center py-4">
+          <div class=" col-lg-6 col-7">
+            <nav aria-label="breadcrumb" class=" d-none d-md-inline-block ml-md-4">
+              <ol class=" breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class=" breadcrumb-item">
+                  <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
+                </li>
+  
+                <li class=" breadcrumb-item">
+                  <a href="javascript:void(0)"> Documents </a>
+                </li>
+  
+                <li aria-current="page" class=" breadcrumb-item active">
+                  Nouveau
+                </li>
+              </ol>
+            </nav>
+          </div>
+  
+          <div class=" col-lg-6 col-5 text-right">
+             
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class=" container-fluid mt--6">
+     <form role="form" #form_document="ngForm" class="form-horizontal" method="POST" id="form_document">
+    <div class=" card mb-4">
+      <div class=" card-header">
+        <h3 class=" mb-0">Nouveau document</h3>
+  
+        <div class=" card-body">
+          <div class=" row">
+            <div class=" col-sm-6">
+              <fieldset class="col-sm-12 field border p-2">
+                <legend class="w-auto">Saisie des informations du Document </legend>
+                <table style="width: 80%; line-height: 3;">
+                  <tr>
+                    <td><label for="imgurl" class="col-sm-12 control-label">Image URL<font
+                          style="color: red">*</font></label></td>
+                    <td><input type="file"  id="fileInput" class="form-control form-control-sm" 
+                      (change)="onFileChange($event)" accept=".pdf" placeholder="" required="">
+                      <!-- <input type="hidden"  id="imgurl" class="form-control form-control-sm"  name="imgurl" [(ngModel)]="newDocument.imageURL" placeholder=""> -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><label for="qualite" class="col-sm-12 control-label">Qualite<font
+                          style="color: red">*</font></label></td>
+                    <td><input type="text" class="form-control form-control-sm" id="qualite" name="qualite"
+                      [(ngModel)]="newDocument.qualite" placeholder="" required=""></td>
+                  </tr>
+                   <tr>
+                    <td><label for="numerodocument" class="col-sm-12 control-label">Numéro Document<font
+                          style="color: red">*</font></label></td>
+                    <td><input type="text" class="form-control form-control-sm" id="numerodocument" name="numerodocument"
+                      [(ngModel)]="newDocument.numeroDocument" placeholder="" required=""></td>
+                  </tr>
+                  <tr>
+                    <td><label for="typedocument" class="col-sm-12 control-label">Type Document<font style="color: red">*
+                        </font></label></td>
+                    <td>
+                      <select name="typedocument" class="form-control" (change)="onSelectTypeDocument($event)" id="typedocument" required>
+                        <option value="">--Selectionner--</option>
+                              <!-- <option  *ngFor="let typedoc of typeDoc" value="{{typedoc.id}}">{{typedoc.libelle}}</option>--> 
+                        <option  *ngFor="let typedoc of listTypeDocument" value="{{typedoc.id}}"> {{typedoc.libelle}} </option> 
+                              <!-- <option  *ngFor="let typedoc of listTypeDocument" [ngValue]="typedoc">{{typedoc.libelle}}</option>-->
+                    </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><label for="designationdocument" class="col-sm-12 control-label">Désignation Document <font
+                          style="color: red">*</font></label></td>
+                    <td><input type="text" class="form-control form-control-sm" id="designationdocument"
+                        name="designationdocument" [(ngModel)]="newDocument.designationDocument" placeholder="" required=""></td>
+                  </tr>
+                  <tr>
+                    <td><label for="dateetablissement" class="col-sm-12 control-label">Date Etablissement <font
+                          style="color: red">*</font> </label></td>
+                    <td><input type="date" class="form-control form-control-sm" id="dateetablissement"
+                        name="dateetablissement" [(ngModel)]="newDocument.dateEtablissement" placeholder="" required=""></td>
+                  </tr>
+                  <tr>
+                    <td><label for="objetdocument" class="col-sm-12 control-label">Objet Document <font
+                          style="color: red">*</font></label></td>
+                    <td><textarea class="form-control form-control-sm" id="objetdocument" name="objetdocument" cols="08"
+                        rows="2" [(ngModel)]="newDocument.objetDocument" placeholder=" Enter Text" required=""></textarea></td>
+                  </tr>
+                  <tr>
+                    <td><label for="auteurdocument" class="col-sm-12 control-label">Auteur Document <font
+                          style="color: red">*</font></label></td>
+                    <td><input type="text" class="form-control form-control-sm" id="auteurdocument" name="auteurdocument"
+                      [(ngModel)]="newDocument.auteurDocument" placeholder="" required=""></td>
+                  </tr>
+                  <tr>
+                    <td><label for="dateacceptation" class="col-sm-12 control-label">Date Acceptation </label></td>
+                    <td><input type="date" class="form-control form-control-sm" id="dateacceptation"
+                        name="dateacceptation" [(ngModel)]="newDocument.dateAcceptation" placeholder=""></td>
+                  </tr>
+                  <tr>
+                    <td><label for="datesoumission" class="col-sm-12 control-label">Date Soumission </label></td>
+                    <td><input type="date" class="form-control form-control-sm" id="datesoumission" name="datesoumission"
+                      [(ngModel)]="newDocument.dateSoumission"placeholder=""></td>
+                  </tr>
+                  <tr>
+                    <td><label for="sourceexterne" class="col-sm-12 control-label">Source Externe <font
+                          style="color: red">*</font></label></td>
+                    <td><input type="text" class="form-control form-control-sm" id="sourceexterne" name="sourceexterne"
+                      [(ngModel)]="newDocument.sourceExterne"  placeholder="Lien vers la source documentaire externe" required=""></td>
+                  </tr>
+                  <tr>
+                    <td><label for="datedebututilisation" class="col-sm-12 control-label">Date Debut Utilisation </label>
+                    </td>
+                    <td><input type="date" class="form-control form-control-sm" id="datedebututilisation"
+                        name="datedebututilisation" [(ngModel)]="newDocument.dateDebutUtilisation" placeholder=""></td>
+                  </tr>
+                  <tr>
+                    <td><label for="datefinutilisation" class="col-sm-12 control-label">Date Fin Utilisation </label></td>
+                    <td><input type="date" class="form-control form-control-sm" id="datefinutilisation"
+                        name="datefinutilisation" [(ngModel)]="newDocument.dateFinUtilisation"  placeholder=""></td>
+                  </tr>
+                  <tr>
+                    <td><label for="dateNumerisation" class="col-sm-12 control-label">Date Numerisation </label></td>
+                    <td><input type="date" class="form-control form-control-sm" id="dateNumerisation"
+                        name="dateNumerisation" [(ngModel)]="newDocument.dateNumerisation"  placeholder=""></td>
+                  </tr>
+                  <tr>
+                    <td><label for="etatdocument" class="col-sm-12 control-label">Etat Document <font style="color: red">*
+                        </font> </label></td>
+                    <td>
+                      <select name="etatdocument" class="form-control form-control-sm" id="etatdocument" [(ngModel)]="newDocument.etatDocument" required>
+                        <option value="">--Selectionner--</option>
+                        <option value="bon">Bon </option>
+                        <option value="mauvais">Mauvais</option>
+                      </select>
+                    </td>
+                  </tr>
+                </table>
+              </fieldset><br>
+            </div>
+  
+            <div class="col-sm-6">
+              <fieldset class="col-sm-12 field border p-2">
+                <legend class="w-auto">Aperçu de Document</legend>
+                <div class="col-sm-12" id="div_img">
+                  <img src="" alt="" width="auto" id="img_source">
+                  <iframe src="" id="pdfPreview" frameborder="0" style="width: 100%; height: 860px"></iframe>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <table style="width: 100%">
+            <tr>
+              <td align="center"><button class="btn btn-success" (click)="onFormSubmit();"><i
+                    class="fa fa-save"></i>Enregistrer</button></td>
+              <td align="center"><button class="btn btn-danger"><i class="ni ni-fat-remove"></i>Annuler</button></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </form>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4">
+      <ng-template #classic let-c="close" let-d="dismiss">
+        <div class="modal-content">
+        </div>
+      </ng-template>
+    </div>
+  </div>

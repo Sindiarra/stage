@@ -1,0 +1,1019 @@
+<div class=" header bg-info pb-6">
+  <div class=" container-fluid">
+    <div class=" header-body">
+      <div class=" row align-items-center py-4">
+        <div class=" col-lg-6 col-7">
+          <nav aria-label="breadcrumb" class=" d-none d-md-inline-block ml-md-4">
+            <ol class=" breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class=" breadcrumb-item">
+                <a href="javascript:void(0)"><i class=" fas fa-home"></i></a>
+              </li>
+
+              <li class=" breadcrumb-item">
+                <a href="javascript:void(0)"> Personnes </a>
+              </li>
+
+              <li aria-current="page" class=" breadcrumb-item active">
+                Nouvelle Personne
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class=" col-lg-6 col-5 text-right">
+          <!-- <a class=" btn btn-sm btn-neutral" href="javascript:void(0)"> New </a>
+
+          <a class=" btn btn-sm btn-neutral" href="javascript:void(0)">
+            Filters
+          </a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class=" container-fluid mt--6">
+  <form role="form" #form_courrier="ngForm" class="form-horizontal" method="POST" id="form_courrier">
+    <div class=" card mb-4">
+      <div class=" card-header">
+        <h3 class=" mb-0">Informations relatives aux personnes</h3>
+      </div>
+      <div class=" card-body">
+
+        <div class="agile-grids">
+          <div class="agile-tables">
+            <div class="w3l-table-info">
+              <div class="row">
+                <div class="col-sm-12">
+                  <fieldset class="col-sm-12 field border p-2">
+                    <legend class="w-auto">Saisir les informations d'une personne</legend>
+                    <div class="form-group">
+                      <label for="Type_Personne" class="col-sm-4 control-label">Type Personne <font style="color: red">*
+                        </font>
+                      </label>
+                      <div class="col-sm-4">
+                        <select class="form-control form-control-sm" id="Type_Personne" [(ngModel)]="newTypePersonne.libelleTypePersonne"
+                          (change)="onChangeType_Personne($event)" name="Type_Personne">
+                          <option *ngFor="let type of typePersonnes" [value]="type.id">
+                            {{ type.libelleTypePersonne }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!--Personne Morale-->
+                    <div id="morale" class="col-sm-12" *ngIf="moral_form === true">
+                      <form role="form" #form_courrier="ngForm" class="form-horizontal" method="POST"
+                        id="form_PersonneMorale">
+                        <div id="top_button">
+                          <h4>Personne Morale</h4>
+                        </div>
+                        <fieldset class="col-sm-12 field border p-2">
+                          <legend class="w-auto">Etat</legend>
+                        <table style="width: 80%; line-height: 1;">
+                          <tr>
+                           <td><input type="checkbox" style="width: 25px;height: 25px;margin-right: 10px;" id="bloquePersonneMorale" name="bloquePersonneMorale" 
+                            [(ngModel)]="newPersonneMorale.bloquePersonneMorale">
+                              <label for="bloquePersonneMorale" class="control-label">Bloquer</label></td>
+                          </tr>
+                          <tr></tr>
+                          <tr>
+                            <td><label for="refPersonneMorale" class="col-sm-12 control-label">Ref. Personne
+                            </label></td>
+                          <td><input type="text" class="form-control form-control-sm" id="refPersonneMorale"
+                              name="refPersonneMorale" placeholder="" readonly
+                              [(ngModel)]="newPersonneMorale.refPersonneMorale"></td>
+                            <td><label for="dateEtabPersonneMorale" class="col-sm-12 control-label">Date Etablissement
+                                <font style="color: red">*</font>
+                              </label></td>
+                            <td><input type="date" class="form-control form-control-sm" id="dateEtabPersonneMorale"
+                                name="dateEtabPersonneMorale" placeholder="" required=""
+                                [(ngModel)]="newPersonneMorale.dateCreationPersonne"></td>
+                            <td><label for="dateFinPersonneMorale" class="col-sm-12 control-label">Date Fin
+                              </label></td>
+                            <td><input type="date" class="form-control form-control-sm" id="dateFinPersonneMorale"
+                                name="dateFinPersonneMorale" placeholder="" 
+                                [(ngModel)]="newPersonneMorale.dateFinUtilisationPersonne"></td>
+                            
+                          </tr>
+                        </table>
+                        </fieldset>
+                        <br>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <fieldset class="col-sm-12 field border p-2">
+                              <legend class="w-auto">Piece</legend>
+                            <table style="width: 95%; line-height: 3;">
+                              
+                              <tr>
+                                <td><label for="nifPersonneMorale" class="col-sm-12 control-label">NIF<font style="color: red">*</font></label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="nifPersonneMorale"
+                                    name="nifPersonneMorale" placeholder="N° Nif" required=""
+                                    [(ngModel)]="newPiece.numDocumentPieceIdentite"></td>
+                              </tr>
+                            
+                              <tr>
+                                <td><label for="docIdentPersonneMorale" class="col-sm-12 control-label">Type piece <font style="color: red">*</font></label></td>
+                                <td><select name="docIdentPersonneMorale" class="form-control form-control-sm"
+                                    id="docIdentPersonneMorale" required=""
+                                    [(ngModel)]="newPiece.typePieceIdentite">
+                                    <option value="">--Sélectionnez--</option>
+                                    <option *ngFor="let piece of piecesIdentification" [value]="piece.value">{{
+                                      piece.label }}
+                                    </option>
+                                  </select>
+                                </td>
+                              </tr>
+                              
+                              <tr>
+                                <td><label for="raisonSocialePersonneMorale" class="col-sm-12 control-label">Raison Sociale<font style="color: red">*</font>
+                                  </label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="raisonSocialePersonneMorale"
+                                    name="raisonSocialePersonneMorale" placeholder="" required=""
+                                    [(ngModel)]="newPersonneMorale.raisonSocialePersonneMorale"></td>
+                              </tr>
+                              <tr>
+                                <td><label for="nomCommercialPersonneMorale" class="col-sm-12 control-label">Nom Commercial<font style="color: red">*</font>
+                                  </label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="nomCommercialPersonneMorale"
+                                    name="nomCommercialPersonneMorale" placeholder="" required=""
+                                    [(ngModel)]="newPersonneMorale.nomCommercialPersonneMorale"></td>
+                              </tr>
+                              <tr>
+                                <td><label for="typeEntrepPersonneMorale" class="col-sm-12 control-label">Type Entreprise<font style="color: red">*</font></label></td>
+                                <td>
+                                  <select name="typeEntrepPersonneMorale" class="form-control form-control-sm"
+                                    id="typeEntrepPersonneMorale" required=""
+                                    [(ngModel)]="newPersonneMorale.typeEntrepPersonneMorale">
+                                    <option value="">--Sélectionnez--</option>
+                                    <option *ngFor="let entreprise of typesEntreprises" [value]="entreprise.value">
+                                      {{entreprise.label }}</option>
+                                  </select>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><label for="numCcrmPersonneMorale" class="col-sm-12 control-label">N° CCRM</label>
+                                </td>
+                                <td><input type="text" class="form-control form-control-sm" id="numCcrmPersonneMorale"
+                                    name="numCcrmPersonneMorale" placeholder=""
+                                    [(ngModel)]="newPersonneMorale.numCcrmPersonneMorale"></td>
+                              </tr>
+                            </table>
+                          </fieldset>
+                          </div>
+                          <div class="col-sm-6">
+                            <fieldset class="col-sm-12 field border p-2">
+                              <legend class="w-auto">Adresse</legend>
+                              <table style="width: 80%; line-height: 3;">
+                                <tr>
+                                  <td><label for="telephonePersonneAdresse" class="col-sm-12 control-label">N° Tel<font style="color: red">*</font>
+                                    </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="telephonePersonneAdresse"
+                                      name="telephonePersonneAdresse" placeholder="" required=""
+                                      [(ngModel)]="newAdresse.telephonePersonneAdresse"></td>
+                                </tr>
+                                <tr>
+                                  <td><label for="adressePersonneMorale" class="col-sm-12 control-label">Adresse Nationale<font style="color: red">*</font>
+                                    </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="adressePersonneMorale"
+                                      name="adressePersonneMorale" required=""
+                                      [(ngModel)]="newAdresse.adresseNatPersonneAdresse">
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><label for="adresseIntPersonneAdresse" class="col-sm-12 control-label">Adresse internationale </label>
+                                  </td>
+                                  <td><input type="text" class="form-control form-control-sm" id="adresseIntPersonneAdresse"
+                                      name="adresseIntPersonneAdresse"
+                                      [(ngModel)]="newAdresse.adresseIntPersonneAdresse"></td>
+                                </tr>
+
+                                <tr>
+                                  <td><label for="historiquePersonneMorale" class="col-sm-12 control-label">Historique
+                                    </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="historiquePersonneMorale"
+                                      name="historiquePersonneMorale"
+                                      [(ngModel)]="newPersonneMorale.historiquePersonneMorale"></td>
+                                </tr>
+                              </table>
+                            </fieldset>
+                            <br>
+                            
+                          </div> 
+                          <fieldset class="col-sm-12 field border p-2">
+                            <legend class="w-auto">Compte</legend>
+                            <table style="width: 80%; line-height: 3;">
+                              <tr>
+                                <td><label for="montantAbatPersonneMorale" class="col-sm-12 control-label">Montant Abattement
+                                  </label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="montantAbatPersonneMorale"
+                                    name="montantAbatPersonneMorale" placeholder="" readonly
+                                    [(ngModel)]="newCompte.montantAbattement"></td>
+                              
+                                <td><label for="montantRestPersonneMorale" class="col-sm-12 control-label">Montant Restant
+                                  </label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="montantRestPersonneMorale"
+                                    name="montantRestPersonneMorale" placeholder="" readonly=""
+                                    [(ngModel)]="newCompte.montantRestant"></td>
+                              </tr>
+                              <tr>
+                                <td><label for="motantBailPersonneMorale" class="col-sm-12 control-label">Montant Bail
+                                  </label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="motantBailPersonneMorale"
+                                    name="motantBailPersonneMorale" placeholder="" readonly=""
+                                    [(ngModel)]="newCompte.MontantBail"></td>
+                            
+                                <td><label for="montantTotalPersonneMorale" class="col-sm-12 control-label">Montant Total
+                                  </label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="montantTotalPersonneMorale"
+                                    name="montantTotalPersonneMorale" placeholder="" readonly=""
+                                    [(ngModel)]="newCompte.MontantTotalPaiement"></td>
+                              </tr>
+                            </table>
+                          </fieldset>                               
+                        </div>
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <fieldset class="col-sm-12 field border p-2">
+                                <legend class="w-auto">La liste des personnes physiques associées</legend>
+                                <table id="table" class=" table align-items-center table-flush">
+                                  <thead class=" thead-light">
+                                    <tr>
+                                      <th>Réf Personne</th>
+                                      <th>Prénom</th>
+                                      <th>Nom</th>
+                                      <th>Lien</th>
+                                      <th [width]="10">
+                                        <button class="btn btn-md" title="Ajouter une personne"  (click)="open(classic,'modal_large' , 'lg')" type="button" style="background: transparent;border:none;width: 80px;">
+                                          <i class="fa fa-plus text-success"></i></button>
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr *ngFor="let perso of tabPersPhysAssocie let index = index">
+                                      <td>
+                                        <input type="text" class="form-control form-control-sm" id="refPersPhys"
+                                          name="refPersPhys" readonly value="{{perso.ref}}">
+                                      </td>
+                                      <td>
+                                        <input type="text" class="form-control form-control-sm" id="prenomPersPhys"
+                                          name="prenomPersPhys" readonly value="{{perso.prenom}}">
+                                      </td>
+                                      <td>
+                                        <input type="text" class="form-control form-control-sm" id="nomPersPhys" name="nomPersPhys"
+                                          readonly="" value="{{perso.nom}}">
+                                      </td>
+                                      <td>
+                                        <input type="text" class="form-control form-control-sm" id="lienPersPhys" name="lienPersPhys"
+                                           value="{{perso.lien}}">
+                                      </td>
+                                      <td>
+                                        <button class="btn btn-xs" type="button"
+                                          style="background: transparent;border:none"
+                                          (click)="supprPersoPhysAssoListe(index,tabPersPhysAssocie)"><i
+                                            class="fa fa-trash text-danger"></i></button>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </fieldset>
+                            </div>
+                        </div>
+                      </form>
+                    </div>
+                    <!--Personne Morale Heritier-->
+                    <div id="heritier" class="col-sm-12" *ngIf="heri_form === true">
+                      <form role="form" #form_courrier="ngForm" class="form-horizontal" method="POST"
+                        id="form_PersonneHeritier">
+                        <div id="top_button">
+                          <h4>Personne Heritier</h4>
+                        </div>
+                        <fieldset class="col-sm-12 field border p-2">
+                          <legend class="w-auto">Etat</legend>
+                        <table style="width: 80%; line-height: 1;">
+                          <tr>
+                           <td><input type="checkbox" style="width: 25px;height: 25px;margin-right: 10px;" id="bloquePersonneHeritier" name="bloquePersonneHeritier">
+                              <label for="bloquePersonneHeritier" class="control-label">Bloquer</label></td>
+                          </tr>
+                          <tr></tr>
+                          <tr>
+                            <td><label for="refPersonneHeritier" class="col-sm-12 control-label">Ref. Personne
+                            </label></td>
+                          <td><input type="text" class="form-control form-control-sm" id="refPersonneHeritier"
+                              name="refPersonneHeritier" placeholder="" readonly
+                              [(ngModel)]="newPersonneHeritier.prenomPersonneHeritier"></td>
+                            <td><label for="dateEtabPersonneHeritier" class="col-sm-12 control-label">Date Etablissement
+                                <font style="color: red">*</font>
+                              </label></td>
+                            <td><input type="date" class="form-control form-control-sm" id="dateEtabPersonneHeritier"
+                                name="dateEtabPersonneHeritier" placeholder="" required=""
+                                [(ngModel)]="newPersonneHeritier.prenomPersonneHeritier"></td>
+                            <td><label for="dateFinPersonneHeritier" class="col-sm-12 control-label">Date Fin
+                              </label></td>
+                            <td><input type="date" class="form-control form-control-sm" id="dateFinPersonneHeritier"
+                                name="dateFinPersonneHeritier" placeholder="" 
+                                [(ngModel)]="newPersonneHeritier.prenomPersonneHeritier"></td>
+                            
+                          </tr>
+                        </table>
+                        </fieldset>
+                        <br>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <fieldset class="col-sm-12 field border p-2">
+                              <legend class="w-auto">Piece</legend>
+                            <table style="width: 80%; line-height: 3;">
+                              <!-- <tr>
+                                <td><label for="NumDocument_PieceIdentite" class="col-sm-12 control-label">N° Nina
+                                    <font style="color: red">*</font>
+                                  </label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="NumDocument_PieceIdentite"
+                                    name="NumDocument_PieceIdentite" placeholder="N° Nina" required=""
+                                    [(ngModel)]="newPiece.numDocumentPieceIdentite"></td>
+                              </tr> -->
+                              <tr>
+                                <td><label for="NumDocument_PieceIdentite" class="col-sm-12 control-label">N° piece
+                                    <font style="color: red">*</font>
+                                  </label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="NumDocument_PieceIdentite"
+                                    name="NumDocument_PieceIdentite" placeholder="N° piece" required=""
+                                    [(ngModel)]="newPiece.numDocumentPieceIdentite"></td>
+                              </tr>
+                              <tr>
+                                <td><label for="Type_PieceIdentite" class="col-sm-12 control-label">Type piece <font
+                                      style="color: red">*</font></label></td>
+                                <td>
+                                  <select name="Type_PieceIdentite" class="form-control form-control-sm" id="Type_PieceIdentite"
+                                    required="" [(ngModel)]="newPiece.typePieceIdentite">
+                                    <option *ngFor="let typePieceHeri of typesPieceHeritier" [value]="typePieceHeri.value">
+                                      {{ typePieceHeri.label }}
+                                    </option>
+                                  </select>
+                                </td>
+                              </tr>
+                              <!-- <tr>
+                          <td><label for="NumDocument_Personnes_Heritier" class="col-sm-12 control-label">N° Document
+                              <font style="color: red">*</font>
+                            </label></td>
+                          <td><input type="text" class="form-control form-control-sm" id="NumDocument_Personnes_Heritier"
+                              name="NumDocument_Personnes_Heritier" placeholder="N° Document" required=""
+                              [(ngModel)]="newPersonneHeritier.NumDocument_Personnes_Heritier"></td>
+                             </tr> -->
+                              <tr>
+                                <td><label for="nomPersonneHeritier" class="col-sm-12 control-label">Nom Heritier
+                                    <font style="color: red">*</font>
+                                  </label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="nomPersonneHeritier"
+                                    name="nomPersonneHeritier" placeholder="" required=""
+                                    [(ngModel)]="newPersonneHeritier.nomPersonneHeritier"></td>
+                              </tr>
+                              <!-- <tr>
+                                <td><label for="dateEtabPersonneHeritier" class="col-sm-12 control-label">Date Etablissement
+                                    <font style="color: red">*</font>
+                                  </label></td>
+                                <td><input type="date" class="form-control form-control-sm" id="dateEtabPersonneHeritier"
+                                    name="dateEtabPersonneHeritier" placeholder="" required=""
+                                    [(ngModel)]="newPersonneHeritier.prenomPersonneHeritier"></td>
+                              </tr> -->
+                            </table>
+                            </fieldset>
+                          </div>
+                          <div class="col-sm-6">
+                            <fieldset class="col-sm-12 field border p-2">
+                              <legend class="w-auto">Adresse</legend>
+                              <table style="width: 80%; line-height: 3;">
+                                <tr>
+                                  <td><label for="telephonePersonneAdresseH" class="col-sm-12 control-label">N° de
+                                      Telephone
+                                      <font style="color: red">*</font>
+                                    </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="telephonePersonneAdresseH"
+                                      name="telephonePersonneAdresseH" placeholder="" required=""
+                                      [(ngModel)]="newAdresse.telephonePersonneAdresse"></td>
+                                </tr>
+                                <tr>
+                                  <td><label for="adresseNatPersonneAdresseH" class="col-sm-12 control-label">Adresse
+                                      Nationale
+                                      <font style="color: red">*</font>
+                                    </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="adresseNatPersonneAdresseH"
+                                      name="adresseNatPersonneAdresseH" required=""
+                                      [(ngModel)]="newAdresse.adresseNatPersonneAdresse">
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><label for="historiquePersonneHeritier" class="col-sm-12 control-label">Historique
+                                    </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="historiquePersonneHeritier"
+                                      name="historiquePersonneHeritier"
+                                      [(ngModel)]="newPersonneHeritier.historiquePersonneHeritier">
+                                  </td>
+                                </tr>
+                              </table>
+                            </fieldset>
+                            <br>
+                          </div>
+                          <!-- <div class="col-sm-6"> -->
+                            <fieldset class="col-sm-12 field border p-2">
+                              <legend class="w-auto">Compte</legend>
+                              <table style="width: 80%; line-height: 3;">
+                                <tr>
+                                  <td><label for="montantAbatPersonneHeritier" class="col-sm-12 control-label">Montant Abattement
+                                    </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="montantAbatPersonneHeritier"
+                                      name="montantAbatPersonneHeritier" placeholder="" readonly
+                                      [(ngModel)]="newCompte.montantAbattement"></td>
+                                  <td><label for="montantRestPersonneHeritier" class="col-sm-12 control-label">Montant Restant
+                                    </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="montantRestPersonneHeritier"
+                                      name="montantRestPersonneHeritier" placeholder="" readonly=""
+                                      [(ngModel)]="newCompte.montantRestant"></td>
+                                </tr>
+                                <tr>
+                                  <td><label for="motantBailPersonneHeritier" class="col-sm-12 control-label">Montant Bail
+                                    </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="motantBailPersonneHeritier"
+                                      name="motantBailPersonneHeritier" placeholder="" readonly=""
+                                      [(ngModel)]="newCompte.MontantBail"></td>
+                                  <td><label for="montantTotalPersonneHeritier" class="col-sm-12 control-label">Montant Total
+                                    </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="montantTotalPersonneHeritier"
+                                      name="montantTotalPersonneHeritier" placeholder="" readonly=""
+                                      [(ngModel)]="newCompte.MontantTotalPaiement"></td>
+                                </tr>
+                              </table>
+                            </fieldset>
+                        </div>
+                          <!-- </div> -->
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <fieldset class="col-sm-12 field border p-2">
+                                <legend class="mb-0">La liste des personnes physiques associées</legend>
+                                <table id="table" class="table align-items-center table-flush">
+                                  <thead class=" thead-light">
+                                    <tr>
+                                      <th>Réf Personne</th>
+                                      <th>Prénom</th>
+                                      <th>Nom</th>
+                                      <th>Lien</th>
+                                      <th [width]="10">
+                                        <button class="btn btn-md" title="Ajouter une personne"  (click)="open(classic,'modal_large' , 'lg')" type="button" style="background: transparent;border:none;width: 80px;">
+                                          <i class="fa fa-plus text-success"></i></button>
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr *ngFor="let perso of tabPersPhysAssocie let index = index">
+                                      <td>
+                                        <input type="text" class="form-control form-control-sm" id="refPersPhys"
+                                          name="refPersPhys" readonly value="{{perso.ref}}">
+                                      </td>
+                                      <td>
+                                        <input type="text" class="form-control form-control-sm" id="prenomPersPhys"
+                                          name="prenomPersPhys" readonly value="{{perso.prenom}}">
+                                      </td>
+                                      <td>
+                                        <input type="text" class="form-control form-control-sm" id="nomPersPhys" name="nomPersPhys"
+                                          readonly="" value="{{perso.nom}}">
+                                      </td>
+                                      <td>
+                                        <input type="text" class="form-control form-control-sm" id="lienPersPhys" name="lienPersPhys"
+                                           value="{{perso.lien}}">
+                                      </td>
+                                      <td>
+                                        <button class="btn btn-xs" type="button"
+                                          style="background: transparent;border:none"
+                                          (click)="supprPersoPhysAssoListe(index,tabPersPhysAssocie)"><i
+                                            class="fa fa-trash text-danger"></i></button>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </fieldset>
+                            </div>
+
+                          </div>
+                      </form>
+                    </div>
+
+
+                    <!--Personne Physique-->
+                    <div id="physique" class="col-sm-12" *ngIf="physi_form === true">
+                      <form role="form" #form_courrier="ngForm" class="form-horizontal" method="POST"
+                        id="form_PersonePhysique">
+                        <div id="top_button">
+                          <h4>Personne Physique</h4>
+                        </div>
+                        <fieldset class="col-sm-12 field border p-2">
+                          <legend class="w-auto">Etat</legend>
+                        <table style="width: 80%; line-height: 1;">
+                          <tr>
+                           <td><input type="checkbox" style="width: 25px;height: 25px;margin-right: 10px;" id="bloquePersonnePhysique" name="bloquePersonnePhysique" 
+                            [(ngModel)]="newPersonnePhysique.bloquePersonnePhysique">
+                              <label for="bloquePersonnePhysique" class="control-label">Bloquer</label></td>
+                          </tr>
+                          <tr></tr>
+                          <tr>
+                            <td><label for="refPersonnePhysique" class="col-sm-12 control-label">Ref. Personne
+                            </label></td>
+                          <td><input type="text" class="form-control form-control-sm" id="refPersonnePhysique"
+                              name="refPersonnePhysique" placeholder="" readonly
+                              [(ngModel)]="newPersonnePhysique.refPersonnePhysique"></td>
+                            <td><label for="dateEtabPersonnePhysique" class="col-sm-12 control-label">Date Etablissement
+                                <font style="color: red">*</font>
+                              </label></td>
+                            <td><input type="date" class="form-control form-control-sm" id="dateEtabPersonnePhysique"
+                                name="dateEtabPersonnePhysique" placeholder="" required=""
+                                [(ngModel)]="newPersonnePhysique.dateCreationPersonne"></td>
+                            <td><label for="dateFinPersonnePhysique" class="col-sm-12 control-label">Date Fin
+                              </label></td>
+                            <td><input type="date" class="form-control form-control-sm" id="dateFinPersonnePhysique"
+                                name="dateFinPersonnePhysique" placeholder="" 
+                                [(ngModel)]="newPersonnePhysique.dateFinUtilisationPersonne"></td>
+                            
+                          </tr>
+                        </table>
+                        </fieldset>
+                        <br>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <fieldset class="col-sm-12 field border p-2">
+                              <legend class="w-auto"></legend>
+                            <table style="width: 80%; line-height: 3;">
+                              <tr>
+                                <td><label for="numPieceIdentPersonnePhysique" class="col-sm-12 control-label">NINA
+                                    <font style="color: red">*</font></label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="numPieceIdentPersonnePhysique"
+                                    name="numPieceIdentPersonnePhysique" placeholder="N° NINA" required=""
+                                    [(ngModel)]="newPiece.numDocumentPieceIdentite"></td>
+                              </tr>
+                          
+                              <tr>
+                                <td><label for="civilitePersonnePhysique" class="col-sm-12 control-label">Civilité 
+                                  <font style="color: red">*</font></label></td>
+                                <td>
+                                  <select name="civilitePersonnePhysique" class="form-control form-control-sm"
+                                    id="civilitePersonnePhysique" required=""
+                                    [(ngModel)]="newPersonnePhysique.civilitePersonnePhysique">
+                                    <option value="">--Selectionnez--</option>
+                                    <option *ngFor="let civily of civilites" [value]="civily">{{ civily }}</option>
+                                  </select>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><label for="nomPersonnePhysique" class="col-sm-12 control-label">Nom 
+                                  <font style="color: red">*</font></label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="nomPersonnePhysique"
+                                    name="nomPersonnePhysique" placeholder="Saisir le Nom" required=""
+                                    [(ngModel)]="newPersonnePhysique.nomPersonnePhysique"></td>
+                              </tr>
+                              <tr>
+                                <td><label for="prenomPersonnePhysique" class="col-sm-12 control-label">Prénom 
+                                  <font style="color: red">*</font></label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="prenomPersonnePhysique"
+                                    name="prenomPersonnePhysique" placeholder="Saisir le Prénom" required=""
+                                    [(ngModel)]="newPersonnePhysique.prenomPersonnePhysique"></td>
+                              </tr>
+                              <tr>
+                                <td><label for="prenom2PersonnePhysique" class="col-sm-12 control-label">Deuxieme Prénom </label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="prenom2PersonnePhysique"
+                                    name="prenom2PersonnePhysique" placeholder="Saisir le Deuxieme Prénom"
+                                    [(ngModel)]="newPersonnePhysique.prenom2PersonnePhysique"></td>
+                              </tr>
+                              <tr>
+                                <td><label for="nomJeuneFillePersonnePhysique" class="col-sm-12 control-label">Nom de Jeune Fille </label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="nomJeuneFillePersonnePhysique"
+                                    name="nomJeuneFillePersonnePhysique" placeholder="Saisir le Nom de Jeune Fille"
+                                    [(ngModel)]="newPersonnePhysique.nomJeuneFillePersonnePhysique"></td>
+                              </tr>
+                              <tr>
+                                <td><label for="sexePersonnePhysique" class="col-sm-12 control-label">Sexe 
+                                  <font style="color: red">*</font></label></td>
+                                <td>
+                                  <select name="sexePersonnePhysique" class="form-control form-control-sm" id="sexePersonnePhysique"
+                                    required="" [(ngModel)]="newPersonnePhysique.sexePersonnePhysique">
+                                    <option value="">--Selectionnez--</option>
+                                    <option *ngFor="let sex of sexes" [value]="sex">{{ sex }}</option>
+                                  </select>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><label for="dateNaissPersonnePhysique" class="col-sm-12 control-label">Date de Naissance 
+                                  <font style="color: red">*</font></label></td>
+                                <td><input type="date" class="form-control form-control-sm" id="dateNaissPersonnePhysique"
+                                    name="dateNaissPersonnePhysique" required=""
+                                    [(ngModel)]="newPersonnePhysique.dateNaissPersonnePhysique"></td>
+                              </tr>
+                              <tr>
+                                <td><label for="lieuNaissPersonnePhysique" class="col-sm-12 control-label">Lieu de Naissance 
+                                  <font style="color: red">*</font></label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="lieuNaissPersonnePhysique"
+                                    name="lieuNaissPersonnePhysique" placeholder="Saisir le lieu" required=""
+                                    [(ngModel)]="newPersonnePhysique.lieuNaissPersonnePhysique"></td>
+                              </tr>
+                              <tr>
+                                <td><label for="nationalitePersonnePhysique" class="col-sm-12 control-label">Nationalite
+                                    <font style="color: red">*</font>
+                                  </label></td>
+                                <td>
+                                  <select name="nationalitePersonnePhysique" class="form-control form-control-sm"
+                                    id="nationalitePersonnePhysique" required=""
+                                    [(ngModel)]="newPersonnePhysique.nationalitePersonnePhysique">
+                                    <option value="">--Sélectionnez--</option>
+                                    <option *ngFor="let country of countries" [value]="country.code">{{ country.name }}
+                                    </option>
+                                  </select>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><label for="professionPersonnePhysique" class="col-sm-12 control-label">Profession
+                                    <font style="color: red">*</font></label></td>
+                                <td>
+                                  <select name="professionPersonnePhysique" class="form-control form-control-sm"
+                                    id="professionPersonnePhysique" required=""
+                                    [(ngModel)]="newPersonnePhysique.professionPersonnePhysique">
+                                    <option *ngFor="let profession of professions" [value]="profession.value">
+                                      {{ profession.label }}
+                                    </option>
+                                  </select>
+                                </td>
+                              </tr>
+                            </table>
+                            </fieldset>
+                            <fieldset class="col-sm-12 field border p-2">
+                              <legend class="w-auto">Pièce d'identité</legend>
+                              <table style="width: 80%; line-height: 3;">
+                              <!--Pop pour mettre a jour la piece d'identite d'une personne-->
+                              <!-- <h4>Ajout/Mise à jour de la pièce d'identité</h4> -->
+                              <!--<div id="top_button">
+                          <button id="btn_pop" type="button" data-backdrop="static" data-keyboard="false"
+                            data-toggle="modal" data-target="#add_data_modal" class="btn btn-success"
+                            title="Ajouter"><span alt="Ajouter" title="Ajouter" class="fa fa-plus"></span></button>
+                        </div>
+                        <!-formulaire d'insertion -->
+                              <!--<div id="add_data_modal" class="modal fade" tabindex="-1" role="dialog"
+                          aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div id="reponse"></div>
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h4 class="modal-title">Nouvelle pièce d'identité</h4><button type="button" id="fermer"
+                                  class="close" data-dismiss="modal">&times;</button>
+                              </div>
+                              <div class="modal-body">
+                                <form role="form" #form_structure="ngForm" class="form-horizontal" method="POST"
+                                  id="form_PersonePhysiquePop">
+  
+                                  <div class="form-group">
+                                    <label for="NumDocument_PieceIdentite" class="col-sm-4 control-label">N° du
+                                      document
+                                      <font style="color: red">*</font>
+                                    </label>
+                                    <div class="col-sm-12">
+                                      <input type="text" class="form-control form-control-sm" id="NumDocument_PieceIdentite"
+                                        name="NumDocument_PieceIdentite" placeholder="Saisir le N° du document"
+                                        required="" [(ngModel)]="newPiece.NumDocument_PieceIdentite">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="Type_PieceIdentite" class="col-sm-4 control-label">Type
+                                      piece <font style="color: red">*</font></label>
+                                    <div class="col-sm-12">
+                                      <select name="Type_PieceIdentite" class="form-control" id="Type_PieceIdentite"
+                                        required="" [(ngModel)]="newPiece.Type_PieceIdentite">
+                                        <option *ngFor="let typeCarte of typesCartes" [value]="typeCarte.value">
+                                          {{ typeCarte.label }}
+                                        </option>
+                                      </select>
+                                    </div>
+                                  </div>
+  
+                                  <div class="form-group">
+                                    <label for="DateCrea_PieceIdentite" class="col-sm-12 control-label">Date de
+                                      Creation <font style="color: red">*</font></label>
+                                    <input type="date" class="form-control form-control-sm" id="DateCrea_PieceIdentite"
+                                      name="DateCrea_PieceIdentite" required=""
+                                      [(ngModel)]="newPiece.DateCrea_PieceIdentite">
+                                  </div>
+  
+                                  <div class="form-group">
+                                    <label for="DateExp_PieceIdentite" class="col-sm-4 control-label">Date
+                                      d'expiration
+                                      <font style="color: red">*</font>
+                                    </label>
+                                    <input type="date" class="form-control form-control-sm" id="DateExp_PieceIdentite"
+                                      name="DateExp_PieceIdentite" required=""
+                                      [(ngModel)]="newPiece.DateExp_PieceIdentite">
+                                  </div>
+  
+                                  <div class="form-group">
+                                    <label for="LieuCreation_PieceIdentite" class="col-sm-4 control-label">Lieu de
+                                      dévrance <font style="color: red">*</font></label>
+                                    <input type="text" class="form-control form-control-sm" id="LieuCreation_PieceIdentite"
+                                      name="LieuCreation_PieceIdentite" placeholder="Saisir le Lieu de dévrance"
+                                      required="" [(ngModel)]="newPiece.LieuCreation_PieceIdentite">
+                                  </div>
+  
+                                  <div class="form-group">
+                                    <label for="AutoriteEmet_PieceIdentite" class="col-sm-4 control-label">Autorité
+                                      émetrice <font style="color: red">*</font></label>
+                                    <input type="text" class="form-control form-control-sm" id="AutoriteEmet_PieceIdentite"
+                                      name="AutoriteEmet_PieceIdentite" placeholder="Saisir Autorité émetrice" required=""
+                                      [(ngModel)]="newPiece.AutoriteEmet_PieceIdentite">
+                                  </div>
+  
+                                  <div class="panel-footer">
+                                    <div class="row">
+                                      <div class="col-sm-8 col-sm-offset-2">
+                                        <input type="hidden" name="insert">
+                                        <button class="btn btn-success btn pull-left" type="submit"
+                                          (click)="onFormSubmitPiece()" name="enregistrer"
+                                          [disabled]="form_structure.submitted">Enregistrer</button>
+                                      </div>
+                                      <div class="col-sm-4 col-sm-offset-2">
+                                        <button class="btn btn-danger btn pull-right" data-dismiss="modal"
+                                          name="annuler">Quitter</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div> Fin du pop-->
+                              <tr>
+                                <td><label for="numDocumentPieceIdentitePh" class="col-sm-8 control-label">N° pièce
+                                    <font style="color: red">*</font>
+                                  </label><button
+                                  id="btn_search" type="button" class="btn btn-xs" title="Rechercher"
+                                  style="float: right;width: 30%;"><span alt="Rechercher" title="Rechercher"
+                                    class="fa fa-search text-success" style="font-size: 28px;"></span></button></td>
+                                <td><input type="text" class="form-control form-control-sm" id="numDocumentPieceIdentitePh"
+                                    name="numDocumentPieceIdentitePh" placeholder="Saisir le N° du document" required=""
+                                    [(ngModel)]="newPiece.numDocumentPieceIdentite" style="width: 70%;"><!---->
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><label for="typePieceIdentitePh" class="col-sm-12 control-label">Type piece
+                                    <font style="color: red">*</font>
+                                  </label>
+                                </td>
+                                <td>
+                                  <select name="typePieceIdentitePh" class="form-control form-control-sm" id="typePieceIdentitePh"
+                                    required="" [(ngModel)]="newPiece.typePieceIdentite">
+                                    <option *ngFor="let typeCarte of typesCartes" [value]="typeCarte.value">
+                                      {{ typeCarte.label }}
+                                    </option>
+                                  </select>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><label for="dateCreaPieceIdentitePh" class="col-sm-12 control-label">Date de Creation
+                                    <font style="color: red">*</font>
+                                  </label>
+                                </td>
+                                <td><input type="date" class="form-control form-control-sm" id="dateCreaPieceIdentitePh"
+                                    name="dateCreaPieceIdentitePh" required=""
+                                    [(ngModel)]="newPiece.dateCreaPieceIdentite">
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><label for="dateExpPieceIdentitePh" class="col-sm-12 control-label">Date d'expiration
+                                    <font style="color: red">*</font>
+                                  </label></td>
+                                <td><input type="date" class="form-control form-control-sm" id="dateExpPieceIdentitePh"
+                                    name="dateExpPieceIdentitePh" required=""
+                                    [(ngModel)]="newPiece.dateExpPieceIdentite">
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><label for="lieuCreationPieceIdentitePh" class="col-sm-12 control-label">Lieu de délivrance 
+                                  <font style="color: red">*</font></label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="lieuCreationPieceIdentitePh"
+                                    name="lieuCreationPieceIdentitePh" placeholder="Saisir le Lieu de dévrance"
+                                    required="" [(ngModel)]="newPiece.lieuCreationPieceIdentite">
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><label for="autoriteEmetPieceIdentitePh" class="col-sm-12 control-label">Autorité émetrice 
+                                  <font style="color: red">*</font></label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="autoriteEmetPieceIdentitePh"
+                                    name="autoriteEmetPieceIdentitePh" placeholder="Saisir Autorité émetrice"
+                                    required="" [(ngModel)]="newPiece.autoriteEmetPieceIdentite">
+                                </td>
+                              </tr>
+                            </table>
+                            </fieldset>
+                          </div>
+                          <div class="col-sm-6">
+                            <fieldset class="col-sm-12 field border p-2">
+                              <legend class="w-auto">Filiation</legend>
+                              <table style="width: 80%; line-height: 3;">
+                                <tr>
+                                  <td><label for="prenomPerePersonnePhysique" class="col-sm-12 control-label">Prénom du pere 
+                                    <font style="color: red">*</font></label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="prenomPerePersonnePhysique"
+                                      name="prenomPerePersonnePhysique" required=""
+                                      [(ngModel)]="newPersonnePhysique.prenomPerePersonnePhysique">
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><label for="nomPerePersonnePhysique" class="col-sm-12 control-label">Nom du pere <font style="color: red">*</font> </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="nomPerePersonnePhysique"
+                                      name="nomPerePersonnePhysique" required=""
+                                      [(ngModel)]="newPersonnePhysique.nomPerePersonnePhysique">
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><label for="prenomMerePersonnePhysique" class="col-sm-12 control-label">Prénom de la mere 
+                                    <font style="color: red">*</font> </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="prenomMerePersonnePhysique"
+                                      name="prenomMerePersonnePhysique" required=""
+                                      [(ngModel)]="newPersonnePhysique.prenomMerePersonnePhysique">
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><label for="nomMerePersonnePhysique" class="col-sm-12 control-label">Nom de la mere 
+                                    <font style="color: red">*</font> </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="nomMerePersonnePhysique"
+                                      name="nomMerePersonnePhysique" required=""
+                                      [(ngModel)]="newPersonnePhysique.nomMerePersonnePhysique">
+                                  </td>
+                                </tr>
+                              </table>
+                            </fieldset>
+                            <br><br>
+                            
+                            <br><br>
+                            <fieldset class="col-sm-12 field border p-2">
+                              <legend class="w-auto">Photo</legend>
+                              <table style="width: 80%; line-height: 3;">
+                                <tr>
+                                  <td>
+                                    <div class="image-upload">
+                                      <label for="file-input">
+                                        <i class="fa fa-user-o" style="font-size: 3em;text-align: center;"></i>
+                                      </label>
+                                      <input type="file" id="file-input" name="avatar_employe"
+                                        (change)="onFileChange($event)" name="Photo_Personnes_Physique"
+                                        [(ngModel)]="newPersonnePhysique.photoPersonnePhysique">
+                                    </div>
+                                    <div id="div_img" hidden=""
+                                      style="width: 200px;height: auto; float:right;margin-top: -80px;"> <img src=""
+                                        alt="Photo" id="img_source" width="120px"></div>
+                                  </td>
+                                </tr>
+                              </table>
+                              <br><br>
+                            <br><br>
+                            <br><br>
+                            <br>
+                            </fieldset>
+                            
+                            <fieldset class="col-sm-12 field border p-2">
+                              <legend class="w-auto">Adresse</legend>
+                              <table style="width: 80%; line-height: 3;">
+                                <tr>
+                                  <td><label for="telephonePersonneAdressePh" class="col-sm-12 control-label">N° de Telephone 
+                                    <font style="color: red">*</font>
+                                    </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="telephonePersonneAdressePh"
+                                      name="telephonePersonneAdressePh" required=""
+                                      [(ngModel)]="newAdresse.telephonePersonneAdresse">
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><label for="telephone2PersonneAdressePh" class="col-sm-12 control-label">N° de Portable
+                                      <font style="color: red">*</font>
+                                    </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="telephone2PersonneAdressePh"
+                                      name="telephone2PersonneAdressePh" required=""
+                                      [(ngModel)]="newAdresse.telephone2PersonneAdresse">
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><label for="telephone3PersonneAdressePh" class="col-sm-12 control-label">N° de Domicile
+                                    </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="telephone3PersonneAdressePh"
+                                      name="telephone3PersonneAdressePh"
+                                      [(ngModel)]="newAdresse.telephone3PersonneAdresse">
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><label for="adresseCourrielPersonneAdressePh"
+                                      class="col-sm-12 control-label">Adresse Courriel</label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="adresseCourrielPersonneAdressePh"
+                                      name="adresseCourrielPersonneAdressePh"
+                                      [(ngModel)]="newAdresse.adresseCourrielPersonneAdresse">
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><label for="adresseNatPersonneAdressePh" class="col-sm-12 control-label">Adresse Nationale
+                                      <font style="color: red">*</font>
+                                    </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="adresseNatPersonneAdressePh"
+                                      name="adresseNatPersonneAdressePh" required=""
+                                      [(ngModel)]="newAdresse.adresseNatPersonneAdresse">
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><label for="adresseIntPersonneAdressePh" class="col-sm-12 control-label">Adresse internationale </label></td>
+                                  <td><input type="text" class="form-control form-control-sm" id="adresseIntPersonneAdressePh"
+                                      name="adresseIntPersonneAdressePh"
+                                      [(ngModel)]="newAdresse.adresseIntPersonneAdresse">
+                                  </td>
+                                </tr>
+                              </table>
+                            </fieldset>
+                            
+                            
+                          </div>
+                          <fieldset class="col-sm-12 field border p-2">
+                            <legend class="w-auto">Compte</legend>
+                            <table style="width: 80%; line-height: 3;">
+                              <tr>
+                                <td><label for="montantAbatPersonnePhysique" class="col-sm-12 control-label">Montant Abattement
+                                  </label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="montantAbatPersonnePhysique"
+                                    name="montantAbatPersonnePhysique" placeholder="" readonly
+                                    [(ngModel)]="newCompte.montantAbattement"></td>
+                                <td><label for="montantRestPersonnePhysique" class="col-sm-12 control-label">Montant Restant
+                                  </label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="montantRestPersonnePhysique"
+                                    name="montantRestPersonnePhysique" placeholder="" readonly=""
+                                    [(ngModel)]="newCompte.montantRestant"></td>
+                              </tr>
+                              <tr>
+                                <td><label for="motantBailPersonnePhysique" class="col-sm-12 control-label">Montant Bail
+                                  </label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="motantBailPersonnePhysique"
+                                    name="motantBailPersonnePhysique" placeholder="" readonly=""
+                                    [(ngModel)]="newCompte.MontantBail"></td>
+                                <td><label for="montantTotalPersonnePhysique" class="col-sm-12 control-label">Montant Total
+                                  </label></td>
+                                <td><input type="text" class="form-control form-control-sm" id="montantTotalPersonnePhysique"
+                                    name="montantTotalPersonnePhysique" placeholder="" readonly=""
+                                    [(ngModel)]="newCompte.MontantTotalPaiement"></td>
+                              </tr>
+                            </table>
+                          </fieldset>
+                        </div>
+                      </form>
+                    </div>
+
+
+                    <div class="col-sm-6">
+                      <br><br>
+                    </div>
+                    <table style="width: 100%">
+                      <tr>
+                        <td align="center"><button type="submit" class="btn btn-success" (click)="onFormSubmit();"><i
+                              class="fa fa-save"></i> Enregistrer</button></td>
+                        <td align="center"><button type="button" class="btn btn-danger"><i class="fa fa-remove"></i>Annuler</button>
+                        </td>
+                      </tr>
+                    </table>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!--formulaire d'Ajout'-->
+<div class="row">
+  <div class="col-md-4">
+    <!-- <button class="btn btn-block btn-primary mb-3"  (click)="open(classic,'' , '')">
+     Default
+    </button> -->
+    <ng-template #classic let-c="close" let-d="dismiss">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="modal-title-default">Formulaire Personne</h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-select-tab-list 
+          [titre]="titre" 
+          [infos]="infos"                
+          [thead]="cols" 
+          [items]="rows"
+          (itemChange)="getSelectedTabList($event)"
+           >
+    </app-select-tab-list>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-success">Enregistrer</button>
+          <button type="button" class="btn btn-danger  ml-auto" data-dismiss="modal" (click)="c('Close click')">Fermer</button> -->
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

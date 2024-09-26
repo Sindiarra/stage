@@ -1,0 +1,242 @@
+{
+  "courrier": {},
+  "colllist": {
+    "typecourriers": [
+      {
+        "id": 1,
+        "libelle": "Acte Notarier"
+      },
+      {
+        "id": 2,
+        "libelle": "Autres"
+      }
+    ],
+    "courriers": [],
+    "personnes": [
+      {
+        "id": 1,
+        "refPersonne": "",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "raisonSocialePersonneMorale": "test",
+        "nomCommercialPersonneMorale": "test",
+        "typeEntrepPersonneMorale": "",
+        "numCcrmPersonneMorale": "",
+        "historiquePersonneMorale": null,
+        "typepersonne": {
+          "id": 2,
+          "libelleTypePersonne": "Morale"
+        }
+      },
+      {
+        "id": 2,
+        "refPersonne": "",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "raisonSocialePersonneMorale": "dmm",
+        "nomCommercialPersonneMorale": "fdsq",
+        "typeEntrepPersonneMorale": "",
+        "numCcrmPersonneMorale": "",
+        "historiquePersonneMorale": null,
+        "typepersonne": {
+          "id": 2,
+          "libelleTypePersonne": "Morale"
+        }
+      },
+      {
+        "id": 3,
+        "refPersonne": "",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "raisonSocialePersonneMorale": "dd",
+        "nomCommercialPersonneMorale": "",
+        "typeEntrepPersonneMorale": "",
+        "numCcrmPersonneMorale": "",
+        "historiquePersonneMorale": null,
+        "typepersonne": {
+          "id": 2,
+          "libelleTypePersonne": "Morale"
+        }
+      },
+      {
+        "id": 1,
+        "refPersonne": "",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "civilitePersonnePhysique": "",
+        "nomPersonnePhysique": "ALi",
+        "prenomPersonnePhysique": "Diop",
+        "prenom2PersonnePhysique": null,
+        "nomJeuneFillePersonnePhysique": null,
+        "sexePersonnePhysique": "",
+        "dateNaissPersonnePhysique": "1970-01-01T00:00:00.000Z",
+        "lieuNaissPersonnePhysique": "",
+        "nationalitePersonnePhysique": "",
+        "professionPersonnePhysique": "",
+        "prenomPerePersonnePhysique": "",
+        "nomPerePersonnePhysique": "",
+        "nomMerePersonnePhysique": "",
+        "prenomMerePersonnePhysique": "",
+        "typepersonne": {
+          "id": 1,
+          "libelleTypePersonne": "Physique"
+        }
+      },
+      {
+        "id": 2,
+        "refPersonne": "",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "civilitePersonnePhysique": "",
+        "nomPersonnePhysique": "Madou",
+        "prenomPersonnePhysique": "T",
+        "prenom2PersonnePhysique": null,
+        "nomJeuneFillePersonnePhysique": null,
+        "sexePersonnePhysique": "",
+        "dateNaissPersonnePhysique": "1970-01-01T00:00:00.000Z",
+        "lieuNaissPersonnePhysique": "",
+        "nationalitePersonnePhysique": "",
+        "professionPersonnePhysique": "",
+        "prenomPerePersonnePhysique": "",
+        "nomPerePersonnePhysique": "",
+        "nomMerePersonnePhysique": "",
+        "prenomMerePersonnePhysique": "",
+        "typepersonne": {
+          "id": 1,
+          "libelleTypePersonne": "Physique"
+        }
+      },
+      {
+        "id": 3,
+        "refPersonne": "",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "civilitePersonnePhysique": "",
+        "nomPersonnePhysique": "Fanta",
+        "prenomPersonnePhysique": "Coulibaly",
+        "prenom2PersonnePhysique": null,
+        "nomJeuneFillePersonnePhysique": null,
+        "sexePersonnePhysique": "",
+        "dateNaissPersonnePhysique": "1970-01-01T00:00:00.000Z",
+        "lieuNaissPersonnePhysique": "",
+        "nationalitePersonnePhysique": "",
+        "professionPersonnePhysique": "",
+        "prenomPerePersonnePhysique": "",
+        "nomPerePersonnePhysique": "",
+        "nomMerePersonnePhysique": "",
+        "prenomMerePersonnePhysique": "",
+        "typepersonne": {
+          "id": 1,
+          "libelleTypePersonne": "Physique"
+        }
+      }
+    ],
+    "imputation": [
+      {
+        "id": 1,
+        "refPersonne": "",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "raisonSocialePersonneMorale": "test",
+        "nomCommercialPersonneMorale": "test",
+        "typeEntrepPersonneMorale": "",
+        "numCcrmPersonneMorale": "",
+        "historiquePersonneMorale": null
+      },
+      {
+        "id": 2,
+        "refPersonne": "",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "raisonSocialePersonneMorale": "dmm",
+        "nomCommercialPersonneMorale": "fdsq",
+        "typeEntrepPersonneMorale": "",
+        "numCcrmPersonneMorale": "",
+        "historiquePersonneMorale": null
+      },
+      {
+        "id": 3,
+        "refPersonne": "",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "raisonSocialePersonneMorale": "dd",
+        "nomCommercialPersonneMorale": "",
+        "typeEntrepPersonneMorale": "",
+        "numCcrmPersonneMorale": "",
+        "historiquePersonneMorale": null
+      },
+      {
+        "id": 1,
+        "refPersonne": "",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "civilitePersonnePhysique": "",
+        "nomPersonnePhysique": "ALi",
+        "prenomPersonnePhysique": "Diop",
+        "prenom2PersonnePhysique": null,
+        "nomJeuneFillePersonnePhysique": null,
+        "sexePersonnePhysique": "",
+        "dateNaissPersonnePhysique": "1970-01-01T00:00:00.000Z",
+        "lieuNaissPersonnePhysique": "",
+        "nationalitePersonnePhysique": "",
+        "professionPersonnePhysique": "",
+        "prenomPerePersonnePhysique": "",
+        "nomPerePersonnePhysique": "",
+        "nomMerePersonnePhysique": "",
+        "prenomMerePersonnePhysique": ""
+      },
+      {
+        "id": 2,
+        "refPersonne": "",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "civilitePersonnePhysique": "",
+        "nomPersonnePhysique": "Madou",
+        "prenomPersonnePhysique": "T",
+        "prenom2PersonnePhysique": null,
+        "nomJeuneFillePersonnePhysique": null,
+        "sexePersonnePhysique": "",
+        "dateNaissPersonnePhysique": "1970-01-01T00:00:00.000Z",
+        "lieuNaissPersonnePhysique": "",
+        "nationalitePersonnePhysique": "",
+        "professionPersonnePhysique": "",
+        "prenomPerePersonnePhysique": "",
+        "nomPerePersonnePhysique": "",
+        "nomMerePersonnePhysique": "",
+        "prenomMerePersonnePhysique": ""
+      },
+      {
+        "id": 3,
+        "refPersonne": "",
+        "dateCreationPersonne": "1970-01-01T00:00:00.000Z",
+        "dateFinUtilisationPersonne": "1970-01-01T00:00:00.000Z",
+        "bloquePersonne": false,
+        "civilitePersonnePhysique": "",
+        "nomPersonnePhysique": "Fanta",
+        "prenomPersonnePhysique": "Coulibaly",
+        "prenom2PersonnePhysique": null,
+        "nomJeuneFillePersonnePhysique": null,
+        "sexePersonnePhysique": "",
+        "dateNaissPersonnePhysique": "1970-01-01T00:00:00.000Z",
+        "lieuNaissPersonnePhysique": "",
+        "nationalitePersonnePhysique": "",
+        "professionPersonnePhysique": "",
+        "prenomPerePersonnePhysique": "",
+        "nomPerePersonnePhysique": "",
+        "nomMerePersonnePhysique": "",
+        "prenomMerePersonnePhysique": ""
+      }
+    ]
+  }
+}

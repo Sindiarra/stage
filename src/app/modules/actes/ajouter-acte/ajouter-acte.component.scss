@@ -1,0 +1,16 @@
+.field{
+    background: #fff!important;
+}
+.modaldialog,
+.modalcontent{
+height: 98%;
+}
+.modalbody{
+max-height: calc(100% - 120px);
+overflow-y: auto;
+}
+@media(min-width: 992px){
+.lg_dialog{
+    width: 75%!important;
+}
+}
