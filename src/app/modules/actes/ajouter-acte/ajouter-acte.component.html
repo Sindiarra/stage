@@ -2,7 +2,7 @@
     <div class=" container-fluid">
       <div class=" header-body">
         <div class=" row align-items-center py-4">
-          <div class=" col-lg-6 col-7">  
+          <div class=" col-lg-6 col-7">
             <nav
               aria-label="breadcrumb"
               class=" d-none d-md-inline-block ml-md-4"
@@ -11,21 +11,21 @@
                 <li class=" breadcrumb-item">
                   <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
                 </li>
-  
+
                 <li class=" breadcrumb-item">
                   <a href="javascript:void(0)"> Actes </a>
                 </li>
-  
+
                 <li aria-current="page" class=" breadcrumb-item active">
                   Nouvel acte
                 </li>
               </ol>
             </nav>
           </div>
-  
+
           <div class=" col-lg-6 col-5 text-right">
             <!-- <a class=" btn btn-sm btn-neutral" href="javascript:void(0)"> New </a>
-  
+
             <a class=" btn btn-sm btn-neutral" href="javascript:void(0)">
               Filters
             </a> -->
@@ -40,7 +40,7 @@
     <div class=" card mb-4">
       <div class=" card-header"><h3 class=" mb-0">Informations relatives à l'acte</h3></div>
         <div class=" card-body">
-        
+
             <div class=" row">
                 <div class=" col-sm-6">
                     <table style="width: 80%; line-height: 1;">
@@ -85,7 +85,7 @@
                               <option value="Cession">Cession</option>
                               <option value="Hypothèque">Hypothèque</option>
                               <option value="Immatriculation">Immatriculation</option>
-  
+
                             </select>
                           </td>
                         </tr>
@@ -93,8 +93,8 @@
                           <td><label for="Date_Saisie" class="col-sm-12 control-label">Date de Saisie</label></td>
                           <td><input type="date" class="form-control form-control-sm" id="Date_Saisie" name="Date_Saisie" placeholder=""></td>
                         </tr>
-                        
-                      </table>               
+
+                      </table>
                 </div>
                 <div class="col-sm-6">
                     <fieldset class="col-sm-12 field border p-2">
@@ -136,8 +136,8 @@
                       </fieldset>
                 </div>
             </div>
-          
-        
+
+
       </div>
     </div>
     <div class=" row">
@@ -161,11 +161,11 @@
                         <tbody>
                           <tr *ngFor="let tabProp1 of tabProp let index =index">
                             <td>
-                                  <app-dropdown 
-                                        [items]="tabProp1.listpropriete" 
-                                        [showSearch]="showSearch" 
-                                        [showStatus]="showStatus" 
-                                        [showError]="showError" 
+                                  <app-dropdown
+                                        [items]="tabProp1.listpropriete"
+                                        [showSearch]="showSearch"
+                                        [showStatus]="showStatus"
+                                        [showError]="showError"
                                         (itemChange)="onItemChangePropriete($event,index)">
                                   </app-dropdown>
                             </td>
@@ -201,11 +201,11 @@
                     <tbody>
                       <tr *ngFor="let tabProc1 of tabProcessus let index =index">
                         <td>
-                          <app-dropdown 
-                                  [items]="tabProc1.listprocessus" 
-                                  [showSearch]="showSearch" 
-                                  [showStatus]="showStatus" 
-                                  [showError]="showError" 
+                          <app-dropdown
+                                  [items]="tabProc1.listprocessus"
+                                  [showSearch]="showSearch"
+                                  [showStatus]="showStatus"
+                                  [showError]="showError"
                                   (itemChange)="getProcessusInfo($event,index)">
                               </app-dropdown>
                         </td>
@@ -240,29 +240,29 @@
                     <tbody>
                       <tr *ngFor="let partie of tabPartie let index = index">
                         <td>
-                          <app-dropdown 
-                                [items]="partie.listpersonne" 
-                                [showSearch]="showSearch" 
-                                [showStatus]="showStatus" 
-                                [showError]="showError" 
+                          <app-dropdown
+                                [items]="partie.listpersonne"
+                                [showSearch]="showSearch"
+                                [showStatus]="showStatus"
+                                [showError]="showError"
                                 (itemChange)="getPartieInfo($event,index)">
                             </app-dropdown>
                         </td>
                         <td>
-                          <app-dropdown 
-                                [items]="partie.listrole" 
-                                [showSearch]="showSearch" 
-                                [showStatus]="showStatus" 
+                          <app-dropdown
+                                [items]="partie.listrole"
+                                [showSearch]="showSearch"
+                                [showStatus]="showStatus"
                                 [showError]="showError"
                                 (itemChange)="getRoleInfo($event,index)">
                             </app-dropdown>
                         </td>
                         <td>
-                          <app-dropdown 
-                                [items]="partie.listgroup" 
-                                [showSearch]="showSearch" 
-                                [showStatus]="showStatus" 
-                                [showError]="showError" 
+                          <app-dropdown
+                                [items]="partie.listgroup"
+                                [showSearch]="showSearch"
+                                [showStatus]="showStatus"
+                                [showError]="showError"
                                 (itemChange)="getGroupInfo($event,index)">
                             </app-dropdown>
                         </td>
@@ -334,20 +334,20 @@
                             <tr *ngFor="let droits of tabDroit let index = index">
                               <td>
                                 <!-- <label for="imageUrl">selection simple</label> -->
-                                  <app-dropdown 
-                                  [items]="droits.droit" 
-                                  [showSearch]="showSearch" 
-                                  [showStatus]="showStatus" 
-                                  [showError]="showError" 
+                                  <app-dropdown
+                                  [items]="droits.droit"
+                                  [showSearch]="showSearch"
+                                  [showStatus]="showStatus"
+                                  [showError]="showError"
                                   (itemChange)="onItemChangeDroit($event,index)">
                               </app-dropdown>
                               </td>
                               <td>
-                                <app-dropdown 
-                                  [items]="droits.droit" 
-                                  [showSearch]="showSearch" 
-                                  [showStatus]="showStatus" 
-                                  [showError]="showError" 
+                                <app-dropdown
+                                  [items]="droits.droit"
+                                  [showSearch]="showSearch"
+                                  [showStatus]="showStatus"
+                                  [showError]="showError"
                                   (itemChange)="onItemChangeDroit($event,index)">
                               </app-dropdown>
                               </td>
@@ -401,7 +401,7 @@
                               <td>
                               </td>
                             </tr>
-                        
+
                           </tbody>
                         </table>
                         <table style="width: 50%;float:right">
@@ -525,14 +525,53 @@
                         </div>
                     </div>
                     </fieldset>
-                    
-                  
                 </tab>
+
                 <tab id="enregistrement"  [active]="idOngletActive === 'enregistrement'">
                   <ng-template tabHeading>
                     <i class="fa fa-save mr-2"></i>Enregistrement
                   </ng-template>
+
                   <p class="description">Enregistrement</p>
+
+                  <div class="col-sm-6 mb-5">
+                    <fieldset class="col-sm-12 field border p-2">
+                      <legend class="w-auto">Enregistrer un acte</legend>
+
+                      <table style="width: 80%; line-height: 1;">
+                        <tr>
+                          <td><label for="Acte_Enregistrer" class="col-sm-12 control-label">Sélectionner l'acte à enregistrer <font class="text text-danger">*</font></label></td>
+                          <td><input type="text" class="form-control form-control-sm" id="Acte_Enregistrer" name="Acte_Enregistrer"></td>
+                        </tr>
+                        <tr>
+                          <td><label for="Date_Enregistrement" class="col-sm-12 control-label">Date d'enregistrement <font class="text text-danger">*</font></label></td>
+                          <td><input type="date" class="form-control form-control-sm" id="Date_Enregistrement" name="Date_Enregistrement"></td>
+                        </tr>
+                        <tr>
+                          <td><label for="Numero_Enregistrement" class="col-sm-12 control-label">Numéro d'enregistrement <font class="text text-danger">*</font></label></td>
+                          <td><input type="text" class="form-control form-control-sm" id="Numero_Enregistrement" name="Numero_Enregistrement"></td>
+                        </tr>
+                        <tr>
+                          <td><label for="Volume_Enregistrement" class="col-sm-12 control-label">Volume d'enregistrement <font class="text text-danger">*</font></label></td>
+                          <td><input type="text" class="form-control form-control-sm" id="Volume_Enregistrement" name="Volume_Enregistrement"></td>
+                        </tr>
+                        <tr>
+                          <td><label for="Folio_Enregistrement" class="col-sm-12 control-label">Folio d'enregistrement</label></td>
+                          <td><input type="text" class="form-control form-control-sm" id="Folio_Enregistrement" name="Folio_Enregistrement"></td>
+                        </tr>
+                      </table>
+
+                      <div class="form-group d-flex justify-content-between mt-3">
+                        <button type="submit" class="btn btn-success">
+                          <i class="fas fa-check-circle"></i> Valider
+                        </button>
+                        <button type="reset" class="btn btn-danger">
+                          <i class="fas fa-times-circle"></i> Annuler
+                        </button>
+                      </div>
+                    </fieldset>
+                  </div>
+
                 </tab>
                 <tab id="depot"  [active]="idOngletActive === 'depot'">
                   <ng-template tabHeading>
@@ -545,8 +584,58 @@
                     <i class="ni ni-single-copy-04 mr-2"></i>Inscription
                   </ng-template>
                   <p class="description">Inscription</p>
+
+                  <div class="col-sm-6">
+                    <fieldset class="col-sm-12 field border p-2">
+                      <legend class="w-auto">Registre de dépot des Actes à inscrire</legend>
+
+                      <table style="width: 80%; line-height: 1;">
+                        <tr>
+                          <td><label for="Acte_Deposer" class="col-sm-12 control-label">Acte à déposer <font class="text text-danger">*</font></label></td>
+                          <td><input type="text" class="form-control form-control-sm" id="Acte_Deposer" name="Acte_Deposer"></td>
+                        </tr>
+                        <tr>
+                          <td><label for="Designation_Droit" class="col-sm-12 control-label">Désignation du droit réel à inscrire <font class="text text-danger">*</font></label></td>
+                          <td><input type="text" class="form-control form-control-sm" id="Designation_Droit" name="Designation_Droit"></td>
+                        </tr>
+                        <tr>
+                          <td><label for="Nb_Pieces_Deposees" class="col-sm-12 control-label">Nombre de pièces déposées <font class="text text-danger">*</font></label></td>
+                          <td><input type="number" class="form-control form-control-sm" id="Nb_Pieces_Deposees" name="Nb_Pieces_Deposees"></td>
+                        </tr>
+                        <tr>
+                          <td><label for="Date_Depot" class="col-sm-12 control-label">Date de dépôt <font class="text text-danger">*</font></label></td>
+                          <td><input type="date" class="form-control form-control-sm" id="Date_Depot" name="Date_Depot"></td>
+                        </tr>
+                        <tr>
+                          <td><label for="Numero_Depot" class="col-sm-12 control-label">Numéro de dépôt <font class="text text-danger">*</font></label></td>
+                          <td><input type="text" class="form-control form-control-sm" id="Numero_Depot" name="Numero_Depot"></td>
+                        </tr>
+                        <tr>
+                          <td><label for="Volume_Depot" class="col-sm-12 control-label">Volume de dépôt <font class="text text-danger">*</font></label></td>
+                          <td><input type="text" class="form-control form-control-sm" id="Volume_Depot" name="Volume_Depot"></td>
+                        </tr>
+                        <tr>
+                          <td><label for="Nb_TF_Concernes" class="col-sm-12 control-label">Nbre de TF concernés par le dépôt <font class="text text-danger">*</font></label></td>
+                          <td><input type="number" class="form-control form-control-sm" id="Nb_TF_Concernes" name="Nb_TF_Concernes"></td>
+                        </tr>
+                        <tr>
+                          <td><label for="Observation" class="col-sm-12 control-label">Observations </label></td>
+                          <td><input type="text" class="form-control form-control-sm" id="Observation" name="Observation"></td>
+                        </tr>
+                      </table>
+
+                      <div class="form-group d-flex justify-content-between mt-3">
+                        <button type="submit" class="btn btn-success">
+                          <i class="fas fa-check-circle"></i> Valider
+                        </button>
+                        <button type="reset" class="btn btn-danger">
+                          <i class="fas fa-times-circle"></i> Annuler
+                        </button>
+                      </div>
+                    </fieldset>
+                  </div>
                 </tab>
               </tabset>
             </div>
-        </div>   
+        </div>
 </div>
