@@ -41,13 +41,19 @@ const routes: Routes = [
         path: "documents",
         loadChildren: () => import('./modules/documents/document.module').then(m => m.DocumentModule)
       },
+
+      {
+        path: "grh",
+        loadChildren: () => import('./modules/grh/grh.module').then(m => m.GrhModule)
+      },
+
       {
         path: "localisations",
         loadChildren: () => import('./modules/localisations/localisation.module').then(m => m.LocalisationModule)
       },
     ]
   },
-  
+
   {
     path: "**",
     redirectTo: "accueil"

@@ -73,6 +73,14 @@ export const ROUTES: RouteInfo[] = [
     type: "link",
     icontype: "ni-single-copy-04 text-success"
   },
+
+  {
+    path: "/grh/liste",
+    title: "GRH",
+    type: "link",
+    icontype: "ni-briefcase-24 text-orange"
+  },
+
   {
     path: "/localisations",
     title: "Localisations",
@@ -98,7 +106,7 @@ export const ROUTES: RouteInfo[] = [
   //     { path: "modifier", title: "Modifier acte", type: "link" }
   //   ]
   // },
- 
+
 ];
 
 @Component({

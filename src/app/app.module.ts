@@ -25,7 +25,7 @@ import * as fr from "@angular/common/locales/fr";
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
   ],
   imports: [
     BrowserAnimationsModule,
