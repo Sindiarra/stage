@@ -3,9 +3,9 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { GRoutes } from "./grh.routing"; // Correction ici
-import { ListeGrhComponent } from "./liste-grh/liste-grh.component";
-import { AjouterGrhComponent } from "./ajouter-grh/ajouter-grh.component";
-import { ModifierGrhComponent } from "./modifier-grh/modifier-grh.component";
+import { PersonnelComponent } from "./personnels/personnel/personnel.component";
+import { AjouterPersonnelComponent } from "./personnels/ajouter-personnel/ajouter-personnel.component";
+import { ModifierPersonnelComponent } from "./personnels/modifier-personnel/modifier-personnel.component";
 
 // Import des modules utilisés
 import { NgxDatatableModule } from "@swimlane/ngx-datatable";
@@ -19,9 +19,9 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
-    ListeGrhComponent,
-    AjouterGrhComponent,
-    ModifierGrhComponent
+    PersonnelComponent,
+    AjouterPersonnelComponent,
+    ModifierPersonnelComponent
   ],
   imports: [
     CommonModule,

@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router";
-import { ListeGrhComponent } from "./liste-grh/liste-grh.component";
-import { AjouterGrhComponent } from "./ajouter-grh/ajouter-grh.component";
-import { ModifierGrhComponent } from "./modifier-grh/modifier-grh.component";
+import { PersonnelComponent } from './personnels/personnel/personnel.component';
+import { AjouterPersonnelComponent } from "./personnels/ajouter-personnel/ajouter-personnel.component";
+import { ModifierPersonnelComponent } from "./personnels/modifier-personnel/modifier-personnel.component";
 
 export const GRoutes: Routes = [
   {
@@ -9,15 +9,15 @@ export const GRoutes: Routes = [
     children: [
       {
         path: "liste",
-        component: ListeGrhComponent
+        component: PersonnelComponent
       },
       {
-        path: "ajouter",
-        component: AjouterGrhComponent
+        path: "nouveau",
+        component: AjouterPersonnelComponent
       },
       {
         path: "modifier/:num",
-        component: ModifierGrhComponent
+        component: ModifierPersonnelComponent
       },
     ]
   }

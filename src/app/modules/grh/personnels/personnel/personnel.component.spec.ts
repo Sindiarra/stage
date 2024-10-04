@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModifierGrhComponent } from './modifier-grh.component';
+import { PersonnelComponent } from './personnel.component';
 
-describe('ModifierGrhComponent', () => {
-  let component: ModifierGrhComponent;
-  let fixture: ComponentFixture<ModifierGrhComponent>;
+describe('PersonnelComponent', () => {
+  let component: PersonnelComponent;
+  let fixture: ComponentFixture<PersonnelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModifierGrhComponent ]
+      declarations: [ PersonnelComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ModifierGrhComponent);
+    fixture = TestBed.createComponent(PersonnelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
