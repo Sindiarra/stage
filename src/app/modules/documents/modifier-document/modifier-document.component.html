@@ -8,32 +8,32 @@
                 <li class=" breadcrumb-item">
                   <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
                 </li>
-  
+
                 <li class=" breadcrumb-item">
                   <a href="javascript:void(0)"> Documents </a>
                 </li>
-  
+
                 <li aria-current="page" class=" breadcrumb-item active">
                   Modification
                 </li>
               </ol>
             </nav>
           </div>
-  
+
           <div class=" col-lg-6 col-5 text-right">
-             
+
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+
   <div class=" container-fluid mt--6">
      <form role="form" #form_document="ngForm" class="form-horizontal" method="POST" id="form_document">
     <div class=" card mb-4">
       <div class=" card-header">
         <h3 class=" mb-0">Modification</h3>
-  
+
         <div class=" card-body">
           <div class=" row">
             <div class=" col-sm-6">
@@ -51,7 +51,7 @@
                           style="color: red">*</font></label></td>
                     <td><input type="text" class="form-control form-control-sm" id="qualite" name="qualite"
                       [(ngModel)]="newDocument.qualite" placeholder="" required=""></td>
-                  </tr>                 
+                  </tr>
                   <tr>
                     <td><label for="numerodocument" class="col-sm-12 control-label">Numéro Document<font
                           style="color: red">*</font></label></td>
@@ -138,7 +138,7 @@
                 </table>
               </fieldset><br>
             </div>
-  
+
             <div class="col-sm-6">
               <fieldset class="col-sm-12 field border p-2">
                 <legend class="w-auto">Aperçu de Document</legend>
@@ -163,7 +163,7 @@
     </div>
   </form>
   </div>
-  
+
   <div class="row">
     <div class="col-md-4">
       <ng-template #classic let-c="close" let-d="dismiss">
