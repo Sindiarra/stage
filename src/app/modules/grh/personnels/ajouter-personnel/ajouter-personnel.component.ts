@@ -8,26 +8,23 @@ import { Personnel } from '../../models-grh/Personnel';
   styleUrls: ['./ajouter-personnel.component.scss']
 })
 export class AjouterPersonnelComponent implements OnInit {
-  // Déclaration des propriétés
-  personnel: any = {};  // Pour lier le modèle de personnel avec le formulaire
-  file!: File; // Pour stocker le fichier sélectionné
-  categories = ['A', 'B1', 'B2', 'C2', 'D', 'E']; // Liste des catégories disponibles
-  structures = ['structure1', 'structure2', 'structure3']; // Liste des structures disponibles
-  newPersonnel = new Personnel();
+  newPersonnel: Personnel = new Personnel(); // Instance du modèle Personnel
+  categories = ['A', 'B1', 'B2', 'C2', 'D', 'E']; // Catégories disponibles
+  structures = ['structure1', 'structure2', 'structure3']; // Structures disponibles
+
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-    // Initialisation des données si nécessaire
+    // Initialisation si nécessaire
   }
 
   // Fonction pour gérer la soumission du formulaire
   onFormSubmit() {
-    console.log('Objet personnel:', this.personnel);
-
+    console.log('Objet personnel:', this.newPersonnel);
     // Logique pour envoyer les données au backend
     // Exemple d'envoi via un service (à implémenter)
-    // this.personnelService.ajouterPersonnel(this.personnel).subscribe(
-    //   (data:any) => {
+    // this.personnelService.ajouterPersonnel(this.newPersonnel).subscribe(
+    //   (data: any) => {
     //     console.log('Réponse:', data);
     //   },
     //   error => {
@@ -40,9 +37,8 @@ export class AjouterPersonnelComponent implements OnInit {
   onFileChange(event: any) {
     const file = event.target.files[0];
     if (file) {
-      const fileURL = URL.createObjectURL(file);
-      console.log('Fichier sélectionné:', fileURL);
-      this.personnel.document = file; // Lier le fichier au modèle de personnel
+      console.log('Fichier sélectionné:', file);
+      this.newPersonnel.documentagent = file; // Lier le fichier au modèle
     }
   }
 }

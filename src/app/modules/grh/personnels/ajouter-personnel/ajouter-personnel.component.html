@@ -37,42 +37,39 @@
               <table style="width: 100%; line-height: 3;">
                 <tr>
                   <td><label for="matricule" class="col-sm-12 control-label">Matricule<font style="color: red">*</font></label></td>
-                  <td><input type="text" class="form-control form-control-sm" id="matricule" name="matricule" [(ngModel)]="personnel.matricule" required></td>
+                  <td><input type="text" class="form-control form-control-sm" id="matricule" name="matricule" [(ngModel)]="newPersonnel.matricule" required></td>
                 </tr>
                 <tr>
                   <td><label for="nom" class="col-sm-12 control-label">Nom<font style="color: red">*</font></label></td>
-                  <td><input type="text" class="form-control form-control-sm" id="nom" name="nom" [(ngModel)]="personnel.nom" required></td>
+                  <td><input type="text" class="form-control form-control-sm" id="nom" name="nom" [(ngModel)]="newPersonnel.personnesPhysique.nomPersonnePhysique" required></td>
                 </tr>
                 <tr>
                   <td><label for="prenom" class="col-sm-12 control-label">Prénom<font style="color: red">*</font></label></td>
-                  <td><input type="text" class="form-control form-control-sm" id="prenom" name="prenom" [(ngModel)]="personnel.prenom" required></td>
+                  <td><input type="text" class="form-control form-control-sm" id="prenom" name="prenom" [(ngModel)]="newPersonnel.personnesPhysique.prenomPersonnePhysique" required></td>
                 </tr>
                 <tr>
                   <td><label for="categorie" class="col-sm-12 control-label">Catégorie<font style="color: red">*</font></label></td>
                   <td>
-                    <select name="categorie" class="form-control form-control-sm" id="categorie" [(ngModel)]="personnel.categorie" required>
-                      <option value="" [selected]="">--Sélectionner--</option>
-                      <option  *ngFor="let cat of categories" [ngValue]="cat">{{cat}}</option>
+                    <select name="categorie" class="form-control form-control-sm" id="categorie" [(ngModel)]="newPersonnel.categorie" required>
+                      <option value="" [selected]="true">--Sélectionner--</option>
+                      <option *ngFor="let cat of categories" [ngValue]="cat">{{cat}}</option>
                     </select>
                   </td>
                 </tr>
                 <tr>
                   <td><label for="dateArrivee" class="col-sm-12 control-label">Date d'Arrivée<font style="color: red">*</font></label></td>
-                  <td><input type="date" class="form-control form-control-sm" id="dateArrivee" name="dateArrivee" [(ngModel)]="personnel.dateArrivee" required></td>
+                  <td><input type="date" class="form-control form-control-sm" id="dateArrivee" name="dateArrivee" [(ngModel)]="newPersonnel.dateArrivee" required></td>
                 </tr>
                 <tr>
                   <td><label for="situation" class="col-sm-12 control-label">Situation<font style="color: red">*</font></label></td>
-                  <td><input type="text" class="form-control form-control-sm" id="situation" name="situation" [(ngModel)]="personnel.situation" required></td>
+                  <td><input type="text" class="form-control form-control-sm" id="situation" name="situation" [(ngModel)]="newPersonnel.situation" required></td>
                 </tr>
                 <tr>
                   <td><label for="structure" class="col-sm-12 control-label">Structure<font style="color: red">*</font></label></td>
                   <td>
-                    <select name="structure" class="form-control form-control-sm" id="structure" [(ngModel)]="personnel.structure" required>
+                    <select name="structure" class="form-control form-control-sm" id="structure" [(ngModel)]="newPersonnel.structure" required>
                       <option value="">--Sélectionner--</option>
-                      <option value="structure1">Structure 1</option>
-                      <option value="structure2">Structure 2</option>
-                      <option value="structure3">Structure 3</option>
-                      <!-- Ajoute d'autres structures si nécessaire -->
+                      <option *ngFor="let structure of structures" [ngValue]="structure">{{structure}}</option>
                     </select>
                   </td>
                 </tr>
