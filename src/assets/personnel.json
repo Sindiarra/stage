@@ -1,278 +1,364 @@
 [
   {
       "id": 1,
-      "matricule": "M001",
-      "categorie": "Ingénieur",
-      "dateArrivee": "2020-01-15T00:00:00Z",
+      "matricule": "P001",
+      "categorie": "Administratif",
+      "dateArrivee": "2022-01-15",
       "situation": "Actif",
-      "personnesPhysique": {},
-      "documentagent": {
-
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Dupont",
+          "prenomPersonnePhysique": "Jean"
       },
-      "utilisateur": {
-
-      },
-      "signatures": [
-          {
-
-          }
-      ],
-      "affectationPersonnels": [
-          {
-
-          }
-      ],
-      "imputations": [
-          {
-
-          }
-      ]
+      "structure": {"libelleStructure": "IT"},
+      "service": {},
+      "documentagent": {},
+      "utilisateur": {},
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 2,
-      "matricule": "M002",
-      "categorie": "Technicien",
-      "dateArrivee": "2021-03-10T00:00:00Z",
+      "matricule": "P002",
+      "categorie": "Technique",
+      "dateArrivee": "2022-02-20",
       "situation": "Actif",
-      "personnesPhysique": {},
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Martin",
+          "prenomPersonnePhysique": "Claire"
+      },
+      "structure": {"libelleStructure": "IT"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 3,
-      "matricule": "M003",
-      "categorie": "Administratif",
-      "dateArrivee": "2019-06-25T00:00:00Z",
-      "situation": "Inactif",
-      "personnesPhysique": {},
+      "matricule": "P003",
+      "categorie": "Ressources Humaines",
+      "dateArrivee": "2022-03-10",
+      "situation": "Actif",
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Leroy",
+          "prenomPersonnePhysique": "Sophie"
+      },
+      "structure": {"libelleStructure": "IT"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 4,
-      "matricule": "M004",
-      "categorie": "Ingénieur",
-      "dateArrivee": "2020-07-30T00:00:00Z",
-      "situation": "Actif",
-      "personnesPhysique": {},
+      "matricule": "P004",
+      "categorie": "Technique",
+      "dateArrivee": "2022-04-05",
+      "situation": "Inactif",
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Bernard",
+          "prenomPersonnePhysique": "Philippe"
+      },
+      "structure": {"libelleStructure": "IT"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 5,
-      "matricule": "M005",
-      "categorie": "Technicien",
-      "dateArrivee": "2022-05-12T00:00:00Z",
+      "matricule": "P005",
+      "categorie": "Administratif",
+      "dateArrivee": "2022-05-12",
       "situation": "Actif",
-      "personnesPhysique": {},
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Moreau",
+          "prenomPersonnePhysique": "Isabelle"
+      },
+      "structure": {"libelleStructure": "IT"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 6,
-      "matricule": "M006",
-      "categorie": "Commercial",
-      "dateArrivee": "2018-11-20T00:00:00Z",
-      "situation": "Inactif",
-      "personnesPhysique": {},
+      "matricule": "P006",
+      "categorie": "Finance",
+      "dateArrivee": "2022-06-22",
+      "situation": "Actif",
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Giraud",
+          "prenomPersonnePhysique": "Jacques"
+      },
+      "structure": {"libelleStructure": "IT"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 7,
-      "matricule": "M007",
-      "categorie": "Ingénieur",
-      "dateArrivee": "2021-09-15T00:00:00Z",
+      "matricule": "P007",
+      "categorie": "Technique",
+      "dateArrivee": "2022-07-30",
       "situation": "Actif",
-      "personnesPhysique": {},
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Lemoine",
+          "prenomPersonnePhysique": "Nathalie"
+      },
+      "structure": {"libelleStructure": "IT"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 8,
-      "matricule": "M008",
-      "categorie": "Administratif",
-      "dateArrivee": "2017-04-05T00:00:00Z",
+      "matricule": "P008",
+      "categorie": "Ressources Humaines",
+      "dateArrivee": "2022-08-15",
       "situation": "Actif",
-      "personnesPhysique": {},
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Lacoste",
+          "prenomPersonnePhysique": "Alice"
+      },
+      "structure": {"libelleStructure": "IT"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 9,
-      "matricule": "M009",
-      "categorie": "Technicien",
-      "dateArrivee": "2016-02-10T00:00:00Z",
-      "situation": "Inactif",
-      "personnesPhysique": {},
-      "documentagent": {},
+      "matricule": "P009",
+      "categorie": "Technique",
+      "dateArrivee": "2022-09-25",
+      "situation": "Actif",
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Colin",
+          "prenomPersonnePhysique": "Hugo"
+      },
+      "structure": {"libelleStructure": "IT"},
+      "service": {},
+      "documentagent": { },
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 10,
-      "matricule": "M010",
-      "categorie": "Commercial",
-      "dateArrivee": "2015-08-25T00:00:00Z",
+      "matricule": "P010",
+      "categorie": "Administratif",
+      "dateArrivee": "2022-10-10",
       "situation": "Actif",
-      "personnesPhysique": {},
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Roussel",
+          "prenomPersonnePhysique": "Émilie"
+      },
+      "structure": {"libelleStructure": "IT"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 11,
-      "matricule": "M011",
-      "categorie": "Ingénieur",
-      "dateArrivee": "2019-03-30T00:00:00Z",
+      "matricule": "P011",
+      "categorie": "Finance",
+      "dateArrivee": "2022-11-01",
       "situation": "Actif",
-      "personnesPhysique": {},
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Pires",
+          "prenomPersonnePhysique": "David"
+      },
+      "structure": {"libelleStructure": "IT"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 12,
-      "matricule": "M012",
-      "categorie": "Technicien",
-      "dateArrivee": "2020-12-01T00:00:00Z",
+      "matricule": "P012",
+      "categorie": "Technique",
+      "dateArrivee": "2022-12-12",
       "situation": "Actif",
-      "personnesPhysique": {},
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Chevalier",
+          "prenomPersonnePhysique": "Sébastien"
+      },
+      "structure": {"libelleStructure": "IT"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 13,
-      "matricule": "M013",
-      "categorie": "Administratif",
-      "dateArrivee": "2018-07-17T00:00:00Z",
-      "situation": "Inactif",
-      "personnesPhysique": {},
+      "matricule": "P013",
+      "categorie": "Ressources Humaines",
+      "dateArrivee": "2023-01-20",
+      "situation": "Actif",
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Simon",
+          "prenomPersonnePhysique": "Julie"
+      },
+      "structure": {"libelleStructure": "IT"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 14,
-      "matricule": "M014",
-      "categorie": "Ingénieur",
-      "dateArrivee": "2021-10-22T00:00:00Z",
+      "matricule": "P014",
+      "categorie": "Finance",
+      "dateArrivee": "2023-02-28",
       "situation": "Actif",
-      "personnesPhysique": {},
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Blanchard",
+          "prenomPersonnePhysique": "Lucie"
+      },
+      "structure": {"libelleStructure": "IT"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 15,
-      "matricule": "M015",
-      "categorie": "Commercial",
-      "dateArrivee": "2016-01-10T00:00:00Z",
+      "matricule": "P015",
+      "categorie": "Administratif",
+      "dateArrivee": "2023-03-15",
       "situation": "Actif",
-      "personnesPhysique": {},
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Noel",
+          "prenomPersonnePhysique": "Antoine"
+      },
+      "structure": {"libelleStructure": "IT"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 16,
-      "matricule": "M016",
-      "categorie": "Technicien",
-      "dateArrivee": "2015-11-30T00:00:00Z",
-      "situation": "Inactif",
-      "personnesPhysique": {},
+      "matricule": "P016",
+      "categorie": "Technique",
+      "dateArrivee": "2023-04-01",
+      "situation": "Actif",
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Gautier",
+          "prenomPersonnePhysique": "Vincent"
+      },
+      "structure": {"libelleStructure": "IT"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 17,
-      "matricule": "M017",
-      "categorie": "Administratif",
-      "dateArrivee": "2022-02-14T00:00:00Z",
+      "matricule": "P017",
+      "categorie": "Ressources Humaines",
+      "dateArrivee": "2023-05-20",
       "situation": "Actif",
-      "personnesPhysique": {},
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Garnier",
+          "prenomPersonnePhysique": "Sonia"
+      },
+      "structure": {"libelleStructure": "Finance"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 18,
-      "matricule": "M018",
-      "categorie": "Ingénieur",
-      "dateArrivee": "2018-09-19T00:00:00Z",
+      "matricule": "P018",
+      "categorie": "Technique",
+      "dateArrivee": "2023-06-18",
       "situation": "Actif",
-      "personnesPhysique": {},
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Vasseur",
+          "prenomPersonnePhysique": "Thomas"
+      },
+      "structure": {"libelleStructure": "Finance"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 19,
-      "matricule": "M019",
-      "categorie": "Technicien",
-      "dateArrivee": "2019-05-03T00:00:00Z",
-      "situation": "Inactif",
-      "personnesPhysique": {},
+      "matricule": "P019",
+      "categorie": "Administratif",
+      "dateArrivee": "2023-07-30",
+      "situation": "Actif",
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Lemoine",
+          "prenomPersonnePhysique": "Laurent"
+      },
+      "structure": {"libelleStructure": "Finance"},
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   },
   {
       "id": 20,
-      "matricule": "M020",
-      "categorie": "Commercial",
-      "dateArrivee": "2021-08-30T00:00:00Z",
+      "matricule": "P020",
+      "categorie": "Finance",
+      "dateArrivee": "2023-08-25",
       "situation": "Actif",
-      "personnesPhysique": {},
+      "personnesPhysique": {
+          "nomPersonnePhysique": "Leroy",
+          "prenomPersonnePhysique": "Julien"
+      },
+      "structure": {
+        "libelleStructure": "Finance"
+      },
+      "service": {},
       "documentagent": {},
       "utilisateur": {},
-      "signatures": [{}],
-      "affectationPersonnels": [{}],
-      "imputations": [{}]
+      "signatures": [],
+      "affectationPersonnels": [],
+      "imputations": []
   }
 ]

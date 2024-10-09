@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Personnel } from '../../models-grh/Personnel';
 
 @Component({
   selector: 'app-ajouter-personnel',
@@ -11,7 +12,8 @@ export class AjouterPersonnelComponent implements OnInit {
   personnel: any = {};  // Pour lier le modèle de personnel avec le formulaire
   file!: File; // Pour stocker le fichier sélectionné
   categories = ['A', 'B1', 'B2', 'C2', 'D', 'E']; // Liste des catégories disponibles
-
+  structures = ['structure1', 'structure2', 'structure3']; // Liste des structures disponibles
+  newPersonnel = new Personnel();
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
@@ -40,7 +42,7 @@ export class AjouterPersonnelComponent implements OnInit {
     if (file) {
       const fileURL = URL.createObjectURL(file);
       console.log('Fichier sélectionné:', fileURL);
-      this.personnel.document = fileURL; // Lier l'URL du fichier au modèle de personnel
+      this.personnel.document = file; // Lier le fichier au modèle de personnel
     }
   }
 }

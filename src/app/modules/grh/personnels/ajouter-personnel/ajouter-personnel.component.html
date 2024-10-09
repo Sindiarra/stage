@@ -6,22 +6,18 @@
           <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
               <li class="breadcrumb-item">
-                <a href="javascript:void(0)"> <i class="fas fa-home"> </i> </a>
+                <a href="javascript:void(0)"> <i class="fas fa-home"></i> </a>
               </li>
-
               <li class="breadcrumb-item">
                 <a href="javascript:void(0)"> Personnels </a>
               </li>
-
               <li aria-current="page" class="breadcrumb-item active">
                 Nouveau
               </li>
             </ol>
           </nav>
         </div>
-
-        <div class="col-lg-6 col-5 text-right">
-        </div>
+        <div class="col-lg-6 col-5 text-right"></div>
       </div>
     </div>
   </div>
@@ -44,16 +40,19 @@
                   <td><input type="text" class="form-control form-control-sm" id="matricule" name="matricule" [(ngModel)]="personnel.matricule" required></td>
                 </tr>
                 <tr>
+                  <td><label for="nom" class="col-sm-12 control-label">Nom<font style="color: red">*</font></label></td>
+                  <td><input type="text" class="form-control form-control-sm" id="nom" name="nom" [(ngModel)]="personnel.nom" required></td>
+                </tr>
+                <tr>
+                  <td><label for="prenom" class="col-sm-12 control-label">Prénom<font style="color: red">*</font></label></td>
+                  <td><input type="text" class="form-control form-control-sm" id="prenom" name="prenom" [(ngModel)]="personnel.prenom" required></td>
+                </tr>
+                <tr>
                   <td><label for="categorie" class="col-sm-12 control-label">Catégorie<font style="color: red">*</font></label></td>
                   <td>
                     <select name="categorie" class="form-control form-control-sm" id="categorie" [(ngModel)]="personnel.categorie" required>
-                      <option value="">--Sélectionner--</option>
-                      <option value="A">Catégorie A</option>
-                      <option value="B1">Catégorie B1</option>
-                      <option value="B2">Catégorie B2</option>
-                      <option value="C2">Catégorie C2</option>
-                      <option value="D">Catégorie D</option>
-                      <option value="E">Catégorie E</option>
+                      <option value="" [selected]="">--Sélectionner--</option>
+                      <option  *ngFor="let cat of categories" [ngValue]="cat">{{cat}}</option>
                     </select>
                   </td>
                 </tr>
@@ -66,6 +65,18 @@
                   <td><input type="text" class="form-control form-control-sm" id="situation" name="situation" [(ngModel)]="personnel.situation" required></td>
                 </tr>
                 <tr>
+                  <td><label for="structure" class="col-sm-12 control-label">Structure<font style="color: red">*</font></label></td>
+                  <td>
+                    <select name="structure" class="form-control form-control-sm" id="structure" [(ngModel)]="personnel.structure" required>
+                      <option value="">--Sélectionner--</option>
+                      <option value="structure1">Structure 1</option>
+                      <option value="structure2">Structure 2</option>
+                      <option value="structure3">Structure 3</option>
+                      <!-- Ajoute d'autres structures si nécessaire -->
+                    </select>
+                  </td>
+                </tr>
+                <tr>
                   <td><label for="document" class="col-sm-12 control-label">Document<font style="color: red">*</font></label></td>
                   <td><input type="file" class="form-control form-control-sm" id="document" name="document" accept=".pdf,.doc,.docx" (change)="onFileChange($event)" required></td>
                 </tr>
@@ -75,7 +86,7 @@
         </div>
       </div>
 
-      <div class="row" style="margin-top: -10px;"> <!-- Ajustement du margin-top pour remonter -->
+      <div class="row" style="margin-top: -10px;">
         <table style="width: 100%">
           <tr>
             <td align="center">
@@ -91,7 +102,6 @@
           </tr>
         </table>
       </div>
-
     </div>
   </form>
 </div>

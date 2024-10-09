@@ -83,7 +83,9 @@ console.log('donne', data)
             categorie: person.categorie,
             dateArrivee: this.shortFormatter.format(new Date(person.dateArrivee)), // Formater la date
             situation: person.situation,
-            personnesPhysique: person.personnesPhysique,
+            nomPersonnePhysique: person.personnesPhysique.nomPersonnePhysique, // Ajouter nom
+            prenomPersonnePhysique: person.personnesPhysique.prenomPersonnePhysique, // Ajouter prénom
+            libelleStructure: person.structure.libelleStructure, // Ajouter libellé de la structure
             documentagent: person.documentagent,
             utilisateur: person.utilisateur,
             signatures: person.signatures,
@@ -91,6 +93,7 @@ console.log('donne', data)
             imputations: person.imputations
           });
         });
+
 
         // Charger la variable utilisée pour créer le tableau HTML
         this.temp = this.rows.map((prop, key) => ({
